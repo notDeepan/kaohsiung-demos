@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harborside Coffee 港邊珈琲 — Specialty Coffee &amp; Brunch in Yancheng, Kaohsiung</title>
+<meta name="description" content="House-roasted specialty coffee, brunch and desserts in a 60-year-old shophouse, two minutes from Pier-2 Art Center, Kaohsiung. English menu. Book on LINE.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23bf5b32'/%3E%3Ctext x='32' y='44' font-size='30' text-anchor='middle' fill='%23fcf8f1' font-family='serif'%3E珈%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Harborside Coffee 港邊珈琲","address":{"@type":"PostalAddress","streetAddress":"80 Dayong Rd., Yancheng District","addressLocality":"Kaohsiung","postalCode":"803","addressCountry":"TW"},"telephone":"+886-7-521-8806","priceRange":"NT$90-280","openingHours":["Mo 10:00-18:00","We-Su 10:00-18:00"],"geo":{"@type":"GeoCoordinates","latitude":22.6203,"longitude":120.2818},"servesCuisine":["Coffee","Brunch","Desserts"]}
+</script>
+<style>
+/* ============ tokens ============ */
+:root{
+  --paper:#fcf8f1; --paper-2:#f5eee2; --card:#fffdf8;
+  --ink:#2b1e15; --ink-2:#56473b; --mute:#8a7a6c;
+  --rust:#bf5b32; --rust-d:#a04724; --gold:#d9a441; --leaf:#5d7d5a;
+  --dark:#231811; --dark-2:#2e2118; --cream-on-dark:#f3e9d8; --mute-on-dark:#bfae9b;
+  --line:#06c755; --line-d:#05a948;
+  --hair:rgba(43,30,21,.1); --hair-strong:rgba(43,30,21,.16);
+  --r-lg:26px; --r-md:18px; --r-sm:12px;
+  --shadow-1:0 2px 10px rgba(43,30,21,.05); --shadow-2:0 16px 44px rgba(43,30,21,.13);
+  --serif:'Fraunces','Noto Serif TC','PMingLiU',Georgia,serif;
+  --sans:'Karla','Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif;
+  --pad:clamp(18px,4vw,28px);
+  --sec:clamp(80px,11vw,128px);
+}
+
+/* ============ base ============ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans);cursor:pointer}
+section{scroll-margin-top:96px}
+.wrap{max-width:1140px;margin-inline:auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.18;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--rust);margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--rust)}
+.h2{font-size:clamp(30px,4.2vw,46px);margin-bottom:14px;text-wrap:balance}
+.sec-sub{color:var(--ink-2);max-width:46em;font-size:clamp(15px,1.6vw,17px)}
+
+/* film grain */
+.grain{position:fixed;inset:-50%;z-index:96;pointer-events:none;opacity:.038;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* language toggle */
+.zh{display:none}
+body.zh-mode .en{display:none}
+body.zh-mode span.zh,body.zh-mode a.zh,body.zh-mode strong.zh,body.zh-mode b.zh,body.zh-mode em.zh,body.zh-mode small.zh,body.zh-mode i.zh{display:inline}
+body.zh-mode p.zh,body.zh-mode div.zh,body.zh-mode h1.zh,body.zh-mode h2.zh,body.zh-mode h3.zh,body.zh-mode h4.zh,body.zh-mode li.zh,body.zh-mode figcaption.zh{display:block}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease;transition-delay:calc(var(--i,0)*70ms)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:99px;
+  padding:14px 26px;font-weight:700;font-size:15px;line-height:1;transition:transform .16s,box-shadow .16s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn-line{background:var(--line);color:#fff;box-shadow:0 10px 26px rgba(6,199,85,.32)}
+.btn-line:hover{background:var(--line-d)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:var(--rust)}
+.btn-ghost-l{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.65)}
+.btn-ghost-l:hover{background:rgba(255,255,255,.14)}
+.btn-sm{padding:10px 18px;font-size:13.5px}
+.ico{width:18px;height:18px;flex:none}
+
+/* ============ navbar ============ */
+#nav{position:fixed;top:14px;left:0;right:0;z-index:90;padding-inline:14px}
+.nav-pill{max-width:1140px;margin-inline:auto;display:flex;align-items:center;gap:8px;
+  padding:9px 12px 9px 10px;border-radius:99px;background:rgba(252,248,241,.82);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--hair);box-shadow:var(--shadow-1);transition:box-shadow .3s,background .3s}
+body.scrolled .nav-pill{background:rgba(252,248,241,.94);box-shadow:var(--shadow-2)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:17.5px;padding-left:6px}
+.brand .mark{width:36px;height:36px;border-radius:50%;background:var(--rust);color:var(--paper);
+  display:grid;place-items:center;font-size:17px;flex:none;font-family:var(--serif)}
+.brand small{font-weight:500;color:var(--ink-2);font-size:15px}
+.nav-links{display:flex;align-items:center;gap:4px;margin-inline:auto}
+.nav-links a{font-weight:700;font-size:14px;padding:9px 14px;border-radius:99px;color:var(--ink-2);transition:.18s}
+.nav-links a:hover{background:var(--paper-2);color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
+.lang-btn{border:1.5px solid var(--hair-strong);background:transparent;color:var(--ink);
+  border-radius:99px;padding:8px 14px;font-weight:700;font-size:13px;transition:.18s}
+.lang-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.burger{display:none;width:42px;height:42px;border:none;background:var(--ink);border-radius:99px;position:relative}
+.burger i{position:absolute;left:12px;right:12px;height:2px;background:var(--paper);border-radius:2px;transition:.3s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:24px}
+body.menu-open .burger i:nth-child(1){top:20px;transform:rotate(45deg)}
+body.menu-open .burger i:nth-child(2){top:20px;transform:rotate(-45deg)}
+
+/* mobile full-screen menu */
+.m-menu{position:fixed;inset:0;z-index:85;background:var(--paper);display:flex;flex-direction:column;
+  padding:110px var(--pad) 40px;gap:6px;opacity:0;pointer-events:none;transition:opacity .3s}
+body.menu-open .m-menu{opacity:1;pointer-events:auto}
+.m-menu a.m-link{font-family:var(--serif);font-size:clamp(30px,8vw,40px);font-weight:600;
+  padding:12px 4px;border-bottom:1px solid var(--hair);display:flex;justify-content:space-between;align-items:center}
+.m-menu a.m-link em{font-style:normal;font-family:var(--sans);font-size:13px;color:var(--mute);font-weight:700}
+.m-menu .m-foot{margin-top:auto;display:flex;flex-direction:column;gap:12px}
+body.lock{overflow:hidden}
+
+/* ============ hero ============ */
+.hero{position:relative;min-height:max(92svh,560px);display:flex;align-items:flex-end;color:#fff;
+  background:linear-gradient(158deg,#37251a 0%,#54382a 48%,#7d5034 100%)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
+.hero .scrim{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(24,15,9,.42) 0%,rgba(24,15,9,.18) 38%,rgba(24,15,9,.78) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;padding-block:130px clamp(56px,8vw,84px)}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px);
+  border-radius:99px;padding:7px 15px;font-size:13px;font-weight:700}
+.badge .star{color:var(--gold)}
+.hero h1{font-size:clamp(42px,7.2vw,86px);font-weight:600;line-height:1.06;max-width:11.5em;
+  margin-bottom:20px;text-wrap:balance;letter-spacing:-.015em}
+.hero .lede{font-size:clamp(15.5px,1.9vw,19px);max-width:36em;color:rgba(255,255,255,.92);margin-bottom:32px}
+.cta-row{display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:rgba(20,12,7,.5);
+  border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:8px 17px;font-size:13.5px;font-weight:700;backdrop-filter:blur(6px)}
+.dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;flex:none;animation:pulse 2s infinite}
+.dot.warn{background:var(--gold)}
+.dot.off{background:#ff7a59;animation:none}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(61,220,132,.45)}55%{box-shadow:0 0 0 7px rgba(61,220,132,0)}}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+
+/* ticker */
+.ticker{background:var(--dark);color:var(--cream-on-dark);overflow:hidden;padding:15px 0;border-block:1px solid rgba(255,255,255,.06)}
+.tick-track{display:flex;gap:0;width:max-content;animation:tick 30s linear infinite}
+.ticker:hover .tick-track{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.tick-track{animation:none}}
+@keyframes tick{to{transform:translateX(-50%)}}
+.tick-set{display:flex;align-items:center;flex:none}
+.tick-set span{font-size:13.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;padding-inline:26px;position:relative}
+.tick-set span::after{content:"✦";position:absolute;right:-7px;color:var(--gold);letter-spacing:0}
+
+/* ============ bento about ============ */
+.about{padding-block:var(--sec)}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.b-card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r-lg);
+  padding:clamp(22px,3vw,30px);box-shadow:var(--shadow-1);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.b-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.b-story{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column}
+.b-story h3{font-size:clamp(22px,2.6vw,28px);margin-bottom:14px;text-wrap:balance}
+.b-story p{color:var(--ink-2);font-size:15.5px;margin-bottom:12px}
+.b-story .sig{margin-top:auto;padding-top:14px;font-family:var(--serif);font-style:italic;color:var(--mute);font-size:15px}
+.b-img{padding:0;min-height:200px;background:linear-gradient(135deg,#7d5034,#bf5b32)}
+.b-img.span2{grid-column:span 2}
+.b-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s,transform .7s}
+.b-img:hover img{transform:scale(1.045)}
+.b-img figcaption{position:absolute;left:14px;bottom:12px;z-index:2;background:rgba(24,15,9,.55);color:#fff;
+  backdrop-filter:blur(6px);border-radius:99px;padding:5px 13px;font-size:12px;font-weight:700}
+.b-stat .big{font-family:var(--serif);font-size:clamp(26px,3vw,34px);font-weight:600;line-height:1.1;margin-bottom:6px}
+.b-stat .big em{font-style:normal;color:var(--rust)}
+.b-stat p{color:var(--mute);font-size:13.5px;line-height:1.55}
+.b-tag{position:absolute;top:18px;right:18px;font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--mute)}
+
+/* ============ signatures ============ */
+.signature{padding-block:0 var(--sec)}
+.sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.sig-card{position:relative;border-radius:var(--r-lg);overflow:hidden;color:#fff;min-height:300px;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:24px;border:1px solid var(--hair);
+  transition:transform .25s,box-shadow .25s}
+.sig-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.sig-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,7,0) 30%,rgba(20,12,7,.62) 100%)}
+.sig-card>*{position:relative;z-index:2}
+.sig-no{position:absolute;top:16px;left:20px;z-index:2;font-family:var(--serif);font-size:15px;font-weight:700;
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(5px);border-radius:99px;padding:4px 13px}
+.sig-card h3{font-size:21px;margin-bottom:4px}
+.sig-card .zh-name{font-family:var(--sans);font-size:14px;opacity:.85;margin-bottom:8px}
+.sig-card .why{font-size:13.5px;opacity:.92;line-height:1.55;margin-bottom:10px}
+.sig-card .pr{font-family:var(--serif);font-size:19px;font-weight:700}
+.sig-card .glyph{position:absolute;right:-14px;top:8px;z-index:1;font-family:'Noto Serif TC',serif;font-weight:900;
+  font-size:150px;line-height:1;color:rgba(255,255,255,.1);pointer-events:none}
+
+/* ============ menu ============ */
+.menu-sec{background:var(--dark);color:var(--cream-on-dark);padding-block:var(--sec);position:relative}
+.menu-sec .eyebrow{color:var(--gold)}
+.menu-sec .eyebrow::before{background:var(--gold)}
+.menu-sec .sec-sub{color:var(--mute-on-dark)}
+.menu-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:36px 0 8px}
+.tab{border:1.5px solid rgba(243,233,216,.22);background:transparent;color:var(--cream-on-dark);
+  border-radius:99px;padding:10px 20px;font-weight:700;font-size:14px;transition:.2s}
+.tab:hover{border-color:rgba(243,233,216,.5)}
+.tab.on{background:var(--cream-on-dark);color:var(--dark);border-color:var(--cream-on-dark)}
+.panel{display:none;grid-template-columns:1fr 1fr;gap:6px 56px;padding-top:26px}
+.panel.on{display:grid;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.panel.on{animation:none}}
+.mi{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid rgba(243,233,216,.1)}
+.mi-name{font-weight:700;font-size:15.5px;color:#fff}
+.mi-name .cn{font-weight:500;color:var(--mute-on-dark);font-size:13.5px;margin-left:8px}
+.mi-desc{font-size:13px;color:var(--mute-on-dark);line-height:1.5;margin-top:3px}
+.mi-main{flex:1;min-width:0}
+.mi-pr{font-family:var(--serif);font-size:16.5px;font-weight:600;color:var(--gold);flex:none}
+.tag-pop{display:inline-block;background:var(--rust);color:#fff;font-size:10px;font-weight:700;letter-spacing:.08em;
+  border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:2px;text-transform:uppercase}
+.tag-veg{display:inline-block;color:#9ccf8f;font-size:12px;margin-left:6px;font-weight:700}
+.menu-notes{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.m-note{font-size:12.5px;font-weight:600;color:var(--mute-on-dark);border:1px solid rgba(243,233,216,.16);
+  border-radius:99px;padding:7px 15px}
+.beans-cta{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:var(--dark-2);
+  border:1px solid rgba(243,233,216,.12);border-radius:var(--r-md);padding:18px 22px}
+.beans-cta b{font-family:var(--serif);font-size:17px;color:#fff}
+.beans-cta span{font-size:13.5px;color:var(--mute-on-dark)}
+.beans-cta .pr{margin-left:auto;font-family:var(--serif);color:var(--gold);font-weight:700;font-size:17px}
+
+/* ============ gallery ============ */
+.gal{padding-block:var(--sec)}
+.gal-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.gal-nav{display:flex;gap:8px}
+.gal-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--hair-strong);background:var(--card);
+  font-size:18px;color:var(--ink);transition:.2s}
+.gal-nav button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.snap{display:flex;gap:14px;margin-top:36px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:10px;scrollbar-width:none;-ms-overflow-style:none}
+.snap::-webkit-scrollbar{display:none}
+.shot{position:relative;flex:0 0 min(78vw,340px);aspect-ratio:3/3.8;border-radius:var(--r-md);overflow:hidden;
+  scroll-snap-align:start;background:var(--g,linear-gradient(150deg,#7d5034,#bf5b32))}
+.shot.wide{flex-basis:min(92vw,470px);aspect-ratio:4/3.23}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s,transform .6s}
+.shot:hover img{transform:scale(1.04)}
+.shot figcaption{position:absolute;left:12px;bottom:12px;z-index:2;background:rgba(24,15,9,.55);color:#fff;
+  backdrop-filter:blur(6px);border-radius:99px;padding:5px 13px;font-size:12px;font-weight:700}
+.shot.ig-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(150deg,#bf5b32,#d9a441);color:#fff;text-align:center;padding:24px}
+.shot.ig-card svg{width:40px;height:40px}
+.shot.ig-card b{font-size:17px}
+.shot.ig-card span{font-size:13px;opacity:.92}
+
+/* ============ reviews ============ */
+.reviews{background:var(--paper-2);border-block:1px solid var(--hair);padding-block:var(--sec)}
+.rev-grid{display:grid;grid-template-columns:.9fr 1.1fr 1.1fr 1.1fr;gap:16px;margin-top:40px;align-items:stretch}
+.agg{background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.agg .num{font-family:var(--serif);font-size:64px;font-weight:600;line-height:1}
+.agg .stars{color:var(--gold);font-size:18px;letter-spacing:3px}
+.agg p{font-size:13.5px;color:rgba(252,248,241,.75)}
+.rev{background:var(--card);border:1px solid var(--hair);border-radius:var(--r-lg);padding:26px;
+  display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-1)}
+.rev .stars{color:var(--gold);letter-spacing:2px;font-size:14px}
+.rev p{font-size:15px;color:var(--ink-2);flex:1;font-family:var(--serif);line-height:1.6}
+.rev footer{display:flex;align-items:center;gap:11px}
+.rev .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;flex:none}
+.rev .who b{display:block;font-size:13.5px}
+.rev .who span{font-size:12px;color:var(--mute)}
+
+/* ============ visit ============ */
+.visit{padding-block:var(--sec)}
+.visit-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:16px;margin-top:40px;align-items:stretch}
+.v-card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(24px,3vw,32px);box-shadow:var(--shadow-1)}
+.v-card h3{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);margin:26px 0 10px;font-family:var(--sans);font-weight:700}
+.v-card h3:first-child{margin-top:0}
+.v-card p{color:var(--ink-2);font-size:15.5px}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:9px 0;border-bottom:1px dashed var(--hair-strong);font-size:15px;color:var(--ink-2)}
+.hours tr:last-child td{border-bottom:none}
+.hours td:last-child{text-align:right;font-weight:700;color:var(--ink)}
+.hours tr.is-closed td{color:var(--rust-d)}
+.hours tr.is-today td{color:var(--ink);font-weight:700}
+.today-chip{display:inline-block;background:var(--leaf);color:#fff;font-size:10.5px;font-weight:700;
+  border-radius:5px;padding:2px 8px;margin-left:9px;vertical-align:1px;letter-spacing:.06em}
+.c-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:4px}
+.c-chip{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--hair-strong);border-radius:99px;
+  padding:8px 16px;font-size:13.5px;font-weight:700;transition:.18s}
+.c-chip:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.c-chip.line{background:var(--line);border-color:var(--line);color:#fff}
+.c-chip.line:hover{background:var(--line-d)}
+.map-card{padding:0;overflow:hidden;display:flex;flex-direction:column;min-height:420px;
+  background:linear-gradient(135deg,#e9ddc9,#d9c7ab)}
+.map-card iframe{border:0;width:100%;flex:1;min-height:360px}
+.map-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 20px;background:var(--card);border-top:1px solid var(--hair)}
+.map-foot b{font-size:14px}
+.map-foot a{font-weight:700;font-size:13.5px;color:var(--rust)}
+
+/* ============ cta band ============ */
+.cta-band{background:var(--dark);color:var(--cream-on-dark);padding-block:var(--sec);text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:"珈";position:absolute;left:-30px;bottom:-70px;font-family:'Noto Serif TC',serif;font-weight:900;
+  font-size:300px;line-height:1;color:rgba(243,233,216,.05);pointer-events:none}
+.cta-band h2{font-size:clamp(30px,4.6vw,52px);max-width:18em;margin-inline:auto;margin-bottom:14px;text-wrap:balance;color:#fff}
+.cta-band p{max-width:38em;margin:0 auto 34px;color:var(--mute-on-dark);font-size:16px}
+.cta-band .micro{margin-top:18px;font-size:12.5px;color:var(--mute-on-dark)}
+
+/* ============ footer ============ */
+footer.site{background:#1b120c;color:#a8917b;padding:64px 0 28px;font-size:14px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
+.f-brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:19px;color:var(--cream-on-dark);margin-bottom:12px}
+.f-brand .mark{width:34px;height:34px;border-radius:50%;background:var(--rust);color:var(--paper);display:grid;place-items:center;font-size:16px}
+.f-col h4{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#7a6450;margin-bottom:14px;font-family:var(--sans)}
+.f-col p{margin-bottom:6px}
+.f-soc{display:flex;gap:9px;margin-top:16px}
+.f-soc a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(243,233,216,.18);display:grid;place-items:center;transition:.2s}
+.f-soc a:hover{background:var(--rust);border-color:var(--rust);color:#fff}
+.f-soc svg{width:17px;height:17px}
+.f-bottom{margin-top:46px;padding-top:20px;border-top:1px solid rgba(243,233,216,.1);
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12.5px;color:#7a6450}
+.f-bottom a{color:var(--gold);font-weight:700}
+
+/* ============ mobile sticky book bar ============ */
+.bbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:80;
+  display:none;gap:10px;padding:10px;background:rgba(27,18,12,.92);backdrop-filter:blur(12px);
+  border-radius:18px;box-shadow:0 18px 50px rgba(20,12,7,.45);
+  transform:translateY(130%);transition:transform .35s cubic-bezier(.2,.8,.25,1)}
+.bbar.show{transform:none}
+.bbar .btn{flex:1;padding:13px 10px;font-size:14.5px}
+
+/* ============ responsive ============ */
+@media (max-width:1020px){
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .agg{grid-column:span 2;flex-direction:row;align-items:center;gap:22px}
+}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-actions .btn-line{display:none}
+  .bento{grid-template-columns:1fr 1fr}
+  .b-story{grid-column:span 2}
+  .sig-grid{grid-template-columns:1fr}
+  .sig-card{min-height:230px}
+  .visit-grid{grid-template-columns:1fr}
+  .panel{grid-template-columns:1fr;gap:2px}
+  .bbar{display:flex}
+}
+@media (max-width:560px){
+  .bento{grid-template-columns:1fr}
+  .b-story{grid-column:span 1}
+  .b-img.span2{grid-column:span 1}
+  .rev-grid{grid-template-columns:1fr}
+  .agg{grid-column:span 1;flex-direction:column;align-items:flex-start;gap:6px}
+  .f-grid{grid-template-columns:1fr}
+  .brand small{display:none}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<div id="nav">
+  <div class="nav-pill">
+    <a class="brand" href="#top"><span class="mark">珈</span><span>Harborside&nbsp;<small>港邊珈琲</small></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about"><span class="en">About</span><span class="zh">關於</span></a>
+      <a href="#menu"><span class="en">Menu</span><span class="zh">菜單</span></a>
+      <a href="#gallery"><span class="en">Gallery</span><span class="zh">相簿</span></a>
+      <a href="#reviews"><span class="en">Reviews</span><span class="zh">評論</span></a>
+      <a href="#visit"><span class="en">Visit</span><span class="zh">找我們</span></a>
+    </nav>
+    <div class="nav-actions">
+      <button class="lang-btn" onclick="toggleLang()" aria-label="Switch language"><span class="en">中文</span><span class="zh">EN</span></button>
+      <a class="btn btn-line btn-sm" href="https://line.me/R/ti/p/@harborside" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.03 3.58 7.4 8.41 8.04.33.07.77.22.89.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.01.89.55 1.09-.46 5.87-3.46 8.01-5.92C21.66 13.42 22 11.85 22 10.13 22 5.64 17.52 2 12 2z"/></svg>
+        <span class="en">Book a table</span><span class="zh">LINE 訂位</span></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- mobile menu -->
+<div class="m-menu" id="mMenu" aria-hidden="true">
+  <a class="m-link" href="#about"><span><span class="en">About</span><span class="zh">關於</span></span><em>01</em></a>
+  <a class="m-link" href="#menu"><span><span class="en">Menu</span><span class="zh">菜單</span></span><em>02</em></a>
+  <a class="m-link" href="#gallery"><span><span class="en">Gallery</span><span class="zh">相簿</span></span><em>03</em></a>
+  <a class="m-link" href="#reviews"><span><span class="en">Reviews</span><span class="zh">評論</span></span><em>04</em></a>
+  <a class="m-link" href="#visit"><span><span class="en">Visit</span><span class="zh">找我們</span></span><em>05</em></a>
+  <div class="m-foot">
+    <a class="btn btn-line" href="https://line.me/R/ti/p/@harborside" target="_blank" rel="noopener">
+      <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.03 3.58 7.4 8.41 8.04.33.07.77.22.89.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.01.89.55 1.09-.46 5.87-3.46 8.01-5.92C21.66 13.42 22 11.85 22 10.13 22 5.64 17.52 2 12 2z"/></svg>
+      <span class="en">Book a table on LINE</span><span class="zh">用 LINE 訂位</span></a>
+    <button class="lang-btn" onclick="toggleLang()"><span class="en">切換中文 →</span><span class="zh">Switch to English →</span></button>
+  </div>
+</div>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <img class="hero-bg" alt="Inside Harborside Coffee" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1900&auto=format&fit=crop" onload="this.style.opacity=.92" onerror="this.remove()">
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="badges rv in">
+      <span class="badge"><span class="star">★</span> 4.8 · <span class="en">240 Google reviews</span><span class="zh">Google 240 則評論</span></span>
+      <span class="badge"><span class="en">Yancheng · est. 2019</span><span class="zh">鹽埕老街屋・自 2019</span></span>
+      <span class="badge"><span class="en">2 min from Pier-2</span><span class="zh">距駁二 2 分鐘</span></span>
+    </div>
+    <h1 class="en rv in" style="--i:1">Slow coffee,<br>by the old harbor.</h1>
+    <h1 class="zh rv in" style="--i:1">老港邊,<br>慢慢喝咖啡。</h1>
+    <p class="lede en rv in" style="--i:2">House-roasted specialty coffee, proper brunch and sea air — in a sixty-year-old shophouse, two minutes on foot from Pier-2 Art Center.</p>
+    <p class="lede zh rv in" style="--i:2">自家烘焙精品咖啡、像樣的早午餐,還有海風——在鹽埕六十年老街屋裡,距駁二藝術特區步行兩分鐘。</p>
+    <div class="cta-row rv in" style="--i:3">
+      <a class="btn btn-line" href="https://line.me/R/ti/p/@harborside" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.03 3.58 7.4 8.41 8.04.33.07.77.22.89.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.01.89.55 1.09-.46 5.87-3.46 8.01-5.92C21.66 13.42 22 11.85 22 10.13 22 5.64 17.52 2 12 2z"/></svg>
+        <span class="en">Book a table on LINE</span><span class="zh">用 LINE 訂位</span></a>
+      <a class="btn btn-ghost-l" href="#menu"><span class="en">See the menu</span><span class="zh">看菜單</span></a>
+    </div>
+    <div class="status rv in" style="--i:4" id="status"><span class="dot" id="statusDot"></span><span><span class="en" id="statusEn">Open today 10:00–18:00</span><span class="zh" id="statusZh">今日營業 10:00–18:00</span></span></div>
+  </div>
+</section>
+
+<!-- ticker -->
+<div class="ticker" aria-hidden="true">
+  <div class="tick-track" id="tickTrack">
+    <div class="tick-set">
+      <span>Specialty coffee</span><span>自家烘焙</span><span>Brunch till 14:00</span><span>手沖單品</span><span>Basque cheesecake</span><span>烏龍茶拿鐵</span><span>English menu</span><span>駁二步行 2 分</span>
+    </div>
+    <div class="tick-set">
+      <span>Specialty coffee</span><span>自家烘焙</span><span>Brunch till 14:00</span><span>手沖單品</span><span>Basque cheesecake</span><span>烏龍茶拿鐵</span><span>English menu</span><span>駁二步行 2 分</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT / BENTO ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <p class="eyebrow rv"><span class="en">Our story</span><span class="zh">關於我們</span></p>
+    <h2 class="h2 rv en">A sixty-year-old shophouse,<br>full of coffee.</h2>
+    <h2 class="h2 rv zh">六十年老屋裡的咖啡香。</h2>
+    <div class="bento">
+      <div class="b-card b-story rv">
+        <span class="b-tag">01 — <span class="en">the house</span><span class="zh">老屋</span></span>
+        <h3 class="en">We took over grandma's dry-goods shop and never really left.</h3>
+        <h3 class="zh">我們接手了阿嬤的南北貨老店,然後再也沒離開。</h3>
+        <p class="en">In 2019 we moved a roaster, a brew bar and the smell of butter toast into the old shelves. On most mornings you'll find harbor fishermen next to travelers with cameras — everyone gets the same careful cup.</p>
+        <p class="zh">2019 年,我們把烘豆機、手沖吧台和奶油吐司的香氣,搬進老貨架之間。清晨的店裡,常常是港邊漁人和背相機的旅人並肩而坐——每一杯,我們都一樣認真。</p>
+        <p class="en">English menu, English-speaking staff, outlets at every seat. Come as you are.</p>
+        <p class="zh">全店英文菜單、店員可英文點餐,每個座位都有插座。隨時歡迎。</p>
+        <p class="sig">— Ah-Hui &amp; Min, <span class="en">owners</span><span class="zh">店主 阿輝與敏</span></p>
+      </div>
+      <figure class="b-card b-img span2 rv" style="--i:1;background:linear-gradient(135deg,#54382a,#7d5034)">
+        <img loading="lazy" alt="Coffee beans" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1100&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()">
+        <figcaption class="en">This month's roast</figcaption><figcaption class="zh">本月烘焙</figcaption>
+      </figure>
+      <div class="b-card b-stat rv" style="--i:2">
+        <div class="big"><em>2019</em></div>
+        <p class="en">The year we opened — third generation in the same Yancheng shophouse.</p>
+        <p class="zh">開店那一年——同一棟鹽埕街屋的第三代。</p>
+      </div>
+      <div class="b-card b-stat rv" style="--i:3">
+        <div class="big"><span class="en">Weekly<em> roasts</em></span><span class="zh">每週<em>烘豆</em></span></div>
+        <p class="en">This month: Yirgacheffe &amp; Mandheling. Beans retail at the counter.</p>
+        <p class="zh">本月:耶加雪菲、曼特寧。吧台有售豆。</p>
+      </div>
+      <div class="b-card b-stat rv">
+        <div class="big"><span class="en">MRT <em>O2</em> · 2 min</span><span class="zh">捷運<em>鹽埕埔</em> 2 分</span></div>
+        <p class="en">Orange Line, Yanchengpu, Exit 1 — walk toward the harbor.</p>
+        <p class="zh">橘線 1 號出口,往港邊走就到。</p>
+      </div>
+      <figure class="b-card b-img rv" style="--i:1;background:linear-gradient(135deg,#bf5b32,#d9a441)">
+        <img loading="lazy" alt="Hand-drip coffee" src="https://images.unsplash.com/photo-1495774856032-8b90bbb32b32?q=80&w=900&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()">
+        <figcaption class="en">The brew bar</figcaption><figcaption class="zh">手沖吧台</figcaption>
+      </figure>
+      <div class="b-card b-stat rv" style="--i:2">
+        <div class="big"><span class="en">EN <em>OK</em></span><span class="zh">英文<em>沒問題</em></span></div>
+        <p class="en">Full English menu &amp; staff who can talk beans in English.</p>
+        <p class="zh">全英文菜單,店員可用英文聊豆子。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURES ============ -->
+<section class="signature">
+  <div class="wrap">
+    <p class="eyebrow rv"><span class="en">Signatures</span><span class="zh">招牌</span></p>
+    <h2 class="h2 rv en">Three cups people cross the harbor for</h2>
+    <h2 class="h2 rv zh">三杯讓人特地過港來喝的</h2>
+    <div class="sig-grid">
+      <div class="sig-card rv" style="background:linear-gradient(150deg,#3f5a52,#6d8a72)">
+        <span class="glyph">烏</span><span class="sig-no">№1</span>
+        <h3>Oolong Latte</h3><div class="zh-name">烏龍茶拿鐵</div>
+        <p class="why en">Tieguanyin pulled like espresso, capped with dense steamed milk. Our most ordered cup three years running.</p>
+        <p class="why zh">鐵觀音茶湯如濃縮般萃取,蓋上綿密奶泡。連續三年點單第一。</p>
+        <div class="pr">NT$155</div>
+      </div>
+      <div class="sig-card rv" style="--i:1;background:linear-gradient(150deg,#8a5a2b,#c98e3f)">
+        <span class="glyph">鹽</span><span class="sig-no">№2</span>
+        <h3>Sea-Salt Caramel Latte</h3><div class="zh-name">海鹽焦糖拿鐵</div>
+        <p class="why en">House caramel, a pinch of sea salt — sweet, then salty, like the harbor air outside.</p>
+        <p class="why zh">自製焦糖加一小撮海鹽——先甜後鹹,就像門外的海風。</p>
+        <div class="pr">NT$160</div>
+      </div>
+      <div class="sig-card rv" style="--i:2;background:linear-gradient(150deg,#54382a,#9c6b45)">
+        <span class="glyph">沖</span><span class="sig-no">№3</span>
+        <h3>Hand-Drip Flight</h3><div class="zh-name">手沖雙杯組</div>
+        <p class="why en">Two single origins, brewed side by side. Ask the bar what's open this week.</p>
+        <p class="why zh">兩款單品豆並列沖煮,本週豆單請詢問吧台。</p>
+        <div class="pr">NT$320</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <div class="menu-top">
+      <div>
+        <p class="eyebrow rv"><span class="en">The menu</span><span class="zh">菜單</span></p>
+        <h2 class="h2 rv en" style="color:#fff">Coffee, brunch &amp; sweets</h2>
+        <h2 class="h2 rv zh" style="color:#fff">咖啡・早午餐・甜點</h2>
+      </div>
+      <p class="sec-sub rv en">Everything below is also on the printed bilingual menu in store.</p>
+      <p class="sec-sub rv zh">以下品項皆有店內雙語紙本菜單。</p>
+    </div>
+
+    <div class="tabs rv" role="tablist">
+      <button class="tab on" data-t="coffee" role="tab">Coffee 咖啡</button>
+      <button class="tab" data-t="tea" role="tab">Tea &amp; More 茶飲</button>
+      <button class="tab" data-t="brunch" role="tab">Brunch 早午餐</button>
+      <button class="tab" data-t="dessert" role="tab">Desserts 甜點</button>
+    </div>
+
+    <div class="panel on" id="p-coffee">
+      <div class="mi"><div class="mi-main"><div class="mi-name">Espresso<span class="cn">濃縮</span></div></div><div class="mi-pr">90</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Americano<span class="cn">美式</span></div><div class="mi-desc en">Hot or iced</div><div class="mi-desc zh">冷熱皆可</div></div><div class="mi-pr">110</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Cappuccino<span class="cn">卡布奇諾</span></div></div><div class="mi-pr">130</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Latte<span class="cn">拿鐵</span></div></div><div class="mi-pr">140</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Oolong Latte<span class="cn">烏龍茶拿鐵</span><span class="tag-pop">№1</span></div><div class="mi-desc en">Tieguanyin base, dense milk foam</div><div class="mi-desc zh">鐵觀音茶底,綿密奶泡</div></div><div class="mi-pr">155</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Sea-Salt Caramel Latte<span class="cn">海鹽焦糖拿鐵</span><span class="tag-pop">hot</span></div></div><div class="mi-pr">160</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Hand-Drip Single Origin<span class="cn">手沖單品</span></div><div class="mi-desc en">Today's roast — ask the bar</div><div class="mi-desc zh">本日豆請詢問吧台</div></div><div class="mi-pr">180</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Cold Brew<span class="cn">冰滴咖啡</span></div><div class="mi-desc en">Steeped 8 hours, limited daily</div><div class="mi-desc zh">冰滴八小時,每日限量</div></div><div class="mi-pr">160</div></div>
+    </div>
+
+    <div class="panel" id="p-tea">
+      <div class="mi"><div class="mi-main"><div class="mi-name">Tieguanyin Oolong<span class="cn">鐵觀音</span></div></div><div class="mi-pr">120</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Sun Moon Lake Black Tea<span class="cn">日月潭紅茶</span></div></div><div class="mi-pr">120</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Winter-Melon Lemon<span class="cn">冬瓜檸檬</span></div><div class="mi-desc en">The Kaohsiung classic</div><div class="mi-desc zh">高雄古早味</div></div><div class="mi-pr">100</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Seasonal Fruit Soda<span class="cn">季節水果氣泡飲</span></div></div><div class="mi-pr">130</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Hot Cocoa 75%<span class="cn">可可</span></div></div><div class="mi-pr">120</div></div>
+    </div>
+
+    <div class="panel" id="p-brunch">
+      <div class="mi"><div class="mi-main"><div class="mi-name">Taiwanese Brunch Plate<span class="cn">台味早午餐盤</span><span class="tag-pop">№1</span></div><div class="mi-desc en">Soft egg, pork floss, charcoal toast, seasonal fruit</div><div class="mi-desc zh">半熟蛋、肉鬆、炭烤吐司、季節水果</div></div><div class="mi-pr">280</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Old-School Egg Crepe<span class="cn">古早味蛋餅</span></div></div><div class="mi-pr">90</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Charcoal Butter Toast<span class="cn">炭烤奶油吐司</span><span class="tag-veg">(v)</span></div></div><div class="mi-pr">120</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Pork-Floss Croissant<span class="cn">肉鬆可頌</span></div></div><div class="mi-pr">110</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Granola Yogurt Bowl<span class="cn">優格穀物碗</span><span class="tag-veg">(v)</span></div></div><div class="mi-pr">160</div></div>
+    </div>
+
+    <div class="panel" id="p-dessert">
+      <div class="mi"><div class="mi-main"><div class="mi-name">Basque Cheesecake<span class="cn">巴斯克乳酪蛋糕</span><span class="tag-pop">№1</span></div><div class="mi-desc en">Burnt outside, molten center</div><div class="mi-desc zh">焦香外皮,流心內餡</div></div><div class="mi-pr">150</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Lemon Tart<span class="cn">檸檬塔</span></div></div><div class="mi-pr">130</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Canelé<span class="cn">可麗露</span></div></div><div class="mi-pr">90</div></div>
+      <div class="mi"><div class="mi-main"><div class="mi-name">Seasonal Fruit Cake<span class="cn">季節水果蛋糕</span></div></div><div class="mi-pr">160</div></div>
+    </div>
+
+    <div class="menu-notes rv">
+      <span class="m-note"><span class="en">All prices NT$</span><span class="zh">價格為新台幣</span></span>
+      <span class="m-note"><span class="en">Oat milk +20</span><span class="zh">燕麥奶 +20</span></span>
+      <span class="m-note"><span class="en">Decaf available</span><span class="zh">可做低因</span></span>
+      <span class="m-note"><span class="en">Brunch till 14:00 · last order 17:30</span><span class="zh">早午餐供應至 14:00・最後點餐 17:30</span></span>
+      <span class="m-note"><span class="en">10% service for 6+</span><span class="zh">六人以上加一成</span></span>
+    </div>
+
+    <div class="beans-cta rv">
+      <b><span class="en">Take our beans home</span><span class="zh">把豆子帶回家</span></b>
+      <span><span class="en">200 g bags, this month's two roasts — ground on request.</span><span class="zh">200 克裝,本月兩款烘焙——可代磨。</span></span>
+      <span class="pr">NT$420</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gal" id="gallery">
+  <div class="wrap">
+    <div class="gal-top">
+      <div>
+        <p class="eyebrow rv"><span class="en">Gallery</span><span class="zh">相簿</span></p>
+        <h2 class="h2 rv en">From the counter</h2>
+        <h2 class="h2 rv zh">吧台日常</h2>
+      </div>
+      <div class="gal-nav rv">
+        <button id="galL" aria-label="Scroll gallery left">←</button>
+        <button id="galR" aria-label="Scroll gallery right">→</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="snap" id="snap">
+      <figure class="shot" style="--g:linear-gradient(150deg,#54382a,#7d5034)"><img loading="lazy" alt="Espresso" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()"><figcaption class="en">First pull, 7 am</figcaption><figcaption class="zh">早上七點的第一杯</figcaption></figure>
+      <figure class="shot wide" style="--g:linear-gradient(150deg,#8a5a2b,#c98e3f)"><img loading="lazy" alt="Latte art" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()"><figcaption class="en">Morning latte</figcaption><figcaption class="zh">早晨拿鐵</figcaption></figure>
+      <figure class="shot" style="--g:linear-gradient(150deg,#9c6b45,#caa06a)"><img loading="lazy" alt="Brunch toast" src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=800&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()"><figcaption class="en">Weekend brunch</figcaption><figcaption class="zh">週末早午餐</figcaption></figure>
+      <figure class="shot" style="--g:linear-gradient(150deg,#b0563b,#e0936a)"><img loading="lazy" alt="Cake of the day" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()"><figcaption class="en">Cake of the day</figcaption><figcaption class="zh">本日蛋糕</figcaption></figure>
+      <figure class="shot wide" style="--g:linear-gradient(150deg,#3f3a30,#6a5b45)"><img loading="lazy" alt="Friends at the cafe" src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1000&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()"><figcaption class="en">Sunday, 3 pm</figcaption><figcaption class="zh">週日下午三點</figcaption></figure>
+      <figure class="shot" style="--g:linear-gradient(150deg,#5a4632,#8a6a4a)"><img loading="lazy" alt="Window seat" src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=800&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()"><figcaption class="en">The window seat</figcaption><figcaption class="zh">窗邊座位</figcaption></figure>
+      <a class="shot ig-card" href="https://instagram.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+        <b>@harborside.coffee</b>
+        <span class="en">Daily pours &amp; what's fresh from the oven</span><span class="zh">每天的出杯與剛出爐的</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <p class="eyebrow rv"><span class="en">Reviews</span><span class="zh">評論</span></p>
+    <h2 class="h2 rv en">What guests say</h2>
+    <h2 class="h2 rv zh">客人怎麼說</h2>
+    <div class="rev-grid">
+      <div class="agg rv">
+        <div class="num">4.8</div>
+        <div class="stars">★★★★★</div>
+        <p><span class="en">240 reviews on Google · 96% would return</span><span class="zh">Google 240 則評論・96% 願意再訪</span></p>
+      </div>
+      <div class="rev rv" style="--i:1">
+        <div class="stars">★★★★★</div>
+        <p>"Best pour-over I had in Taiwan. The owner walked us through the beans in perfect English."</p>
+        <footer><span class="av" style="background:#bf5b32">N</span><span class="who"><b>Naomi</b><span>Tokyo · Google</span></span></footer>
+      </div>
+      <div class="rev rv" style="--i:2">
+        <div class="stars">★★★★★</div>
+        <p>「鹽埕散步必停的咖啡店。烏龍茶拿鐵超特別,老屋氣氛很好,座位有插座。」</p>
+        <footer><span class="av" style="background:#5d7d5a">雅</span><span class="who"><b>雅婷</b><span>高雄 · Google</span></span></footer>
+      </div>
+      <div class="rev rv" style="--i:3">
+        <div class="stars">★★★★★</div>
+        <p>"Came for the latte art, stayed three hours. Fast wifi — and the sea-salt caramel latte is dangerous."</p>
+        <footer><span class="av" style="background:#8a5a2b">M</span><span class="who"><b>Marcus</b><span>Singapore · Google</span></span></footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <p class="eyebrow rv"><span class="en">Visit</span><span class="zh">找我們</span></p>
+    <h2 class="h2 rv en">Two minutes from Pier-2</h2>
+    <h2 class="h2 rv zh">距離駁二,步行兩分鐘</h2>
+    <div class="visit-grid">
+      <div class="v-card rv">
+        <h3><span class="en">Address</span><span class="zh">地址</span></h3>
+        <p class="en">80 Dayong Rd., Yancheng District, Kaohsiung 803</p>
+        <p class="zh">803 高雄市鹽埕區大勇路 80 號</p>
+        <h3><span class="en">Hours</span><span class="zh">營業時間</span></h3>
+        <table class="hours">
+          <tr data-row="mon"><td><span class="en">Monday</span><span class="zh">週一</span><span class="today-chip" hidden>today 今天</span></td><td>10:00 – 18:00</td></tr>
+          <tr data-row="tue" class="is-closed"><td><span class="en">Tuesday</span><span class="zh">週二</span><span class="today-chip" hidden>today 今天</span></td><td><span class="en">Closed</span><span class="zh">公休</span></td></tr>
+          <tr data-row="rest"><td><span class="en">Wed – Sun</span><span class="zh">週三 – 週日</span><span class="today-chip" hidden>today 今天</span></td><td>10:00 – 18:00</td></tr>
+        </table>
+        <h3><span class="en">Getting here</span><span class="zh">交通</span></h3>
+        <p class="en">MRT Orange Line → Yanchengpu (O2), Exit 1, walk toward the harbor. Street parking on Wufu 4th Rd.</p>
+        <p class="zh">捷運橘線「鹽埕埔」(O2) 1 號出口,往港邊步行。五福四路可路邊停車。</p>
+        <h3><span class="en">Contact</span><span class="zh">聯絡</span></h3>
+        <div class="c-chips">
+          <a class="c-chip line" href="https://line.me/R/ti/p/@harborside" target="_blank" rel="noopener">LINE @harborside</a>
+          <a class="c-chip" href="tel:+88675218806">(07) 521-8806</a>
+          <a class="c-chip" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a class="c-chip" href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <div class="v-card map-card rv" style="--i:1">
+        <iframe title="Map — Harborside Coffee, Yancheng, Kaohsiung" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Pier-2%20Art%20Center%2C%20Yancheng%20District%2C%20Kaohsiung&z=16&output=embed"></iframe>
+        <div class="map-foot">
+          <b><span class="en">Yancheng, Kaohsiung</span><span class="zh">高雄・鹽埕</span></b>
+          <a href="https://www.google.com/maps/search/?api=1&query=Pier-2+Art+Center+Kaohsiung" target="_blank" rel="noopener"><span class="en">Open in Google Maps →</span><span class="zh">開啟 Google 地圖 →</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-band">
+  <div class="wrap rv">
+    <h2 class="en">Three friends or more?<br>Book ahead — we reply in minutes.</h2>
+    <h2 class="zh">三五好友想一起來?<br>先用 LINE 訂位,幾分鐘內回覆。</h2>
+    <p class="en">Walk-ins always welcome for one or two. Weekend brunch fills up by 11.</p>
+    <p class="zh">一、兩位隨時歡迎直接進來。週末早午餐通常 11 點前就滿座。</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-line" href="https://line.me/R/ti/p/@harborside" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.03 3.58 7.4 8.41 8.04.33.07.77.22.89.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.01.89.55 1.09-.46 5.87-3.46 8.01-5.92C21.66 13.42 22 11.85 22 10.13 22 5.64 17.52 2 12 2z"/></svg>
+        <span class="en">Book on LINE</span><span class="zh">LINE 訂位</span></a>
+      <a class="btn btn-ghost-l" href="https://wa.me/886912345678" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="micro"><span class="en">Prefer to call? (07) 521-8806 · 10:00–18:00</span><span class="zh">想用電話?(07) 521-8806・10:00–18:00</span></p>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-col">
+        <div class="f-brand"><span class="mark">珈</span>Harborside Coffee 港邊珈琲</div>
+        <p class="en">House-roasted coffee &amp; brunch in a 60-year-old Yancheng shophouse, by Kaohsiung's old harbor.</p>
+        <p class="zh">鹽埕六十年老街屋裡的自家烘焙咖啡與早午餐,就在高雄老港邊。</p>
+        <div class="f-soc">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V5c-.2 0-1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.6v3h2.4v7z"/></svg></a>
+          <a href="https://line.me/R/ti/p/@harborside" target="_blank" rel="noopener" aria-label="LINE"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.03 3.58 7.4 8.41 8.04.33.07.77.22.89.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.01.89.55 1.09-.46 5.87-3.46 8.01-5.92C21.66 13.42 22 11.85 22 10.13 22 5.64 17.52 2 12 2z"/></svg></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4><span class="en">Visit</span><span class="zh">地址</span></h4>
+        <p class="en">80 Dayong Rd., Yancheng,<br>Kaohsiung 803</p>
+        <p class="zh">803 高雄市鹽埕區<br>大勇路 80 號</p>
+        <p style="margin-top:10px"><span class="en">MRT Yanchengpu O2 · Exit 1</span><span class="zh">捷運鹽埕埔 O2・1 號出口</span></p>
+      </div>
+      <div class="f-col">
+        <h4><span class="en">Hours</span><span class="zh">營業時間</span></h4>
+        <p><span class="en">Wed–Mon · 10:00–18:00</span><span class="zh">週三至週一・10:00–18:00</span></p>
+        <p><span class="en">Closed Tuesdays</span><span class="zh">週二公休</span></p>
+        <p style="margin-top:10px"><span class="en">Brunch till 14:00</span><span class="zh">早午餐供應至 14:00</span></p>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="yr"></span> Harborside Coffee <span class="en">— demo mockup, details fictional</span><span class="zh">— 示範網站,內容為虛構</span></span>
+      <span><span class="en">Bilingual site by</span><span class="zh">雙語網站設計:</span> <a href="mailto:goswami.deepan@gmail.com">Deepan Goswami</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- mobile sticky booking bar -->
+<div class="bbar" id="bbar">
+  <a class="btn btn-line" href="https://line.me/R/ti/p/@harborside" target="_blank" rel="noopener">
+    <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.03 3.58 7.4 8.41 8.04.33.07.77.22.89.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.01.89.55 1.09-.46 5.87-3.46 8.01-5.92C21.66 13.42 22 11.85 22 10.13 22 5.64 17.52 2 12 2z"/></svg>
+    <span class="en">Book on LINE</span><span class="zh">LINE 訂位</span></a>
+  <a class="btn btn-ink" href="#menu" style="background:rgba(252,248,241,.14);color:#fff"><span class="en">Menu</span><span class="zh">菜單</span></a>
+</div>
+
+<script>
+// ---------- language ----------
+function setLang(l){
+  document.body.classList.toggle('zh-mode', l === 'zh');
+  document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en';
+  try{ localStorage.setItem('demoLang', l); }catch(e){}
+}
+function toggleLang(){ setLang(document.body.classList.contains('zh-mode') ? 'en' : 'zh'); }
+try{ if(localStorage.getItem('demoLang') === 'zh') setLang('zh'); }catch(e){}
+
+// ---------- nav state ----------
+const onScroll = () => {
+  document.body.classList.toggle('scrolled', scrollY > 24);
+  document.getElementById('bbar').classList.toggle('show', scrollY > 520);
+};
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+// ---------- mobile menu ----------
+const burger = document.getElementById('burger');
+function closeMenu(){
+  document.body.classList.remove('menu-open','lock');
+  burger.setAttribute('aria-expanded','false');
+  document.getElementById('mMenu').setAttribute('aria-hidden','true');
+}
+burger.addEventListener('click', () => {
+  const open = document.body.classList.toggle('menu-open');
+  document.body.classList.toggle('lock', open);
+  burger.setAttribute('aria-expanded', open);
+  document.getElementById('mMenu').setAttribute('aria-hidden', String(!open));
+});
+document.querySelectorAll('.m-menu a').forEach(a => a.addEventListener('click', closeMenu));
+
+// ---------- open-now status (Wed–Mon 10–18, closed Tue, last order 17:30) ----------
+(function(){
+  const now = new Date(), d = now.getDay(), h = now.getHours() + now.getMinutes()/60;
+  const en = document.getElementById('statusEn'), zh = document.getElementById('statusZh'),
+        dot = document.getElementById('statusDot');
+  const closedDay = d === 2;
+  if(closedDay){
+    en.textContent = 'Closed today (Tue) · back tomorrow 10:00';
+    zh.textContent = '今日公休(週二)・明日 10:00 見';
+    dot.className = 'dot off';
+  } else if(h >= 10 && h < 17.25){
+    en.textContent = 'Open now · until 18:00';
+    zh.textContent = '營業中・18:00 打烊';
+  } else if(h >= 17.25 && h < 18){
+    en.textContent = 'Closing soon · last order 17:30';
+    zh.textContent = '即將打烊・最後點餐 17:30';
+    dot.className = 'dot warn';
+  } else {
+    const nextDay = (d === 1 && h >= 18) ? 'Wednesday' : (h < 10 ? 'today' : 'tomorrow');
+    const nextZh  = (d === 1 && h >= 18) ? '週三' : (h < 10 ? '今天' : '明天');
+    en.textContent = 'Closed now · opens ' + nextDay + ' 10:00';
+    zh.textContent = '休息中・' + nextZh + ' 10:00 開門';
+    dot.className = 'dot off';
+  }
+  // highlight today's row in the hours table
+  const key = d === 1 ? 'mon' : d === 2 ? 'tue' : 'rest';
+  const row = document.querySelector('.hours tr[data-row="' + key + '"]');
+  if(row){ row.classList.add('is-today'); row.querySelector('.today-chip').hidden = false; }
+})();
+
+// ---------- menu tabs ----------
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === 'p-' + t.dataset.t));
+}));
+
+// ---------- gallery arrows ----------
+const snap = document.getElementById('snap');
+document.getElementById('galL').addEventListener('click', () => snap.scrollBy({left:-380, behavior:'smooth'}));
+document.getElementById('galR').addEventListener('click', () => snap.scrollBy({left: 380, behavior:'smooth'}));
+
+// ---------- reveal on scroll ----------
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.1});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaohsiung Demo Kit — Bilingual Sites for F&amp;B, Stays &amp; Specialty Food</title>
+<meta name="description" content="Three client-ready demo mockups: a bilingual café site, a Cijin B&B with direct booking, and a specialty-food mini store.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='14' fill='%23e8b64c'/%3E%3Ctext x='32' y='44' font-size='30' text-anchor='middle' fill='%2311151a' font-family='serif'%3E高%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#11151a; --card:#1a2027; --edge:rgba(255,255,255,.09);
+  --txt:#e9edf1; --dim:#9aa7b2; --gold:#e8b64c;
+  --serif:'Fraunces','Noto Sans TC',Georgia,serif;
+  --sans:'Karla','Noto Sans TC','Microsoft JhengHei',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--txt);line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+.top{padding-block:80px 40px}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+h1{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:600;line-height:1.2;max-width:18em;text-wrap:balance}
+.intro{color:var(--dim);max-width:46em;margin-top:16px;font-size:16.5px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-block:30px 10px}
+.card{background:var(--card);border:1px solid var(--edge);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.22)}
+.strip{height:120px;display:flex;align-items:flex-end;padding:16px 20px;position:relative;overflow:hidden}
+.strip .big{position:absolute;right:6px;top:-26px;font-family:'Noto Sans TC',serif;font-weight:700;font-size:120px;line-height:1;opacity:.16;color:#fff}
+.strip b{font-family:var(--serif);font-size:21px;color:#fff;position:relative;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.s-cafe{background:linear-gradient(135deg,#4a3426,#c4663a)}
+.s-bnb{background:linear-gradient(135deg,#1d3a4f,#2e7d8c)}
+.s-shop{background:linear-gradient(135deg,#8a2f23,#d9a441)}
+.bd{padding:20px 22px 24px;display:flex;flex-direction:column;gap:14px;flex:1}
+.who{font-size:13px;color:var(--gold);font-weight:700;letter-spacing:.04em}
+.bd p{color:var(--dim);font-size:14.5px;flex:1}
+.feat{display:flex;flex-wrap:wrap;gap:7px}
+.feat span{font-size:12px;font-weight:700;border:1px solid var(--edge);border-radius:7px;padding:3px 9px;color:var(--txt);background:rgba(255,255,255,.04)}
+.go{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;color:var(--gold)}
+.card:hover .go{gap:12px}
+.go i{font-style:normal;transition:inherit}
+.how{margin-block-start:46px;border-top:1px solid var(--edge);padding-block-start:34px}
+.how h2{font-family:var(--serif);font-size:22px;margin-bottom:16px}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.how-it{background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:18px 20px}
+.how-it b{display:block;margin-bottom:4px;font-size:15px}
+.how-it span{color:var(--dim);font-size:13.5px}
+footer{padding:50px 0 60px;color:var(--dim);font-size:13.5px}
+footer a{color:var(--gold);font-weight:700}
+@media (max-width:880px){.cards,.how-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="wrap top">
+  <p class="eyebrow">Kaohsiung demo kit · 高雄示範網站</p>
+  <h1>Three client-ready mockups for food, stays &amp; specialty brands.</h1>
+  <p class="intro">Single-file sites, no dependencies — open them from this folder, on a laptop or phone, even half-offline. Every page has an EN ⇄ 中文 toggle, LINE call-to-actions, and a footer credit that sells the next job. Re-skin one with a prospect's name, photos and menu in an afternoon.</p>
+</div>
+
+<div class="wrap cards">
+  <a class="card" href="cafe/index.html">
+    <div class="strip s-cafe"><span class="big">珈</span><b>Harborside Coffee 港邊珈琲</b></div>
+    <div class="bd">
+      <span class="who">CAFÉS · RESTAURANTS</span>
+      <p>Premium single-page café site: glass pill navbar, bento story grid, tabbed EN/ZH menu, signature-drinks cards, scroll-snap gallery, live open/closed status and a mobile sticky LINE-booking bar.</p>
+      <div class="feat"><span>Tabbed EN/中文 menu</span><span>Bento layout</span><span>Open-now status</span><span>Sticky LINE bar</span><span>Reviews + map</span></div>
+      <span class="go">Open demo <i>→</i></span>
+    </div>
+  </a>
+  <a class="card" href="bnb/index.html">
+    <div class="strip s-bnb"><span class="big">宿</span><b>Tide House 潮汐民宿</b></div>
+    <div class="bd">
+      <span class="who">B&amp;BS · GUESTHOUSES (民宿)</span>
+      <p>Direct-booking landing page: room cards, interactive availability calendar, booking-request form with live price total, Cijin travel guide.</p>
+      <div class="feat"><span>Availability calendar</span><span>Booking form</span><span>“Book direct, save 10%”</span><span>Ferry directions</span></div>
+      <span class="go">Open demo <i>→</i></span>
+    </div>
+  </a>
+  <a class="card" href="shop/index.html">
+    <div class="strip s-shop"><span class="big">果</span><b>Takao Pantry 打狗果舖</b></div>
+    <div class="bd">
+      <span class="who">SPECIALTY FOOD · GIFT BRANDS</span>
+      <p>Mini e-commerce store: six products with EN/ZH descriptions, NT$ ⇄ US$ price toggle, cart with free-shipping bar, mock LINE Pay / ECPay checkout.</p>
+      <div class="feat"><span>Cart + checkout flow</span><span>NT$/US$ toggle</span><span>Shipping table</span><span>Customs notes</span></div>
+      <span class="go">Open demo <i>→</i></span>
+    </div>
+  </a>
+</div>
+
+<div class="wrap how">
+  <h2>Showing these to a prospect</h2>
+  <div class="how-grid">
+    <div class="how-it"><b>Open it on their counter</b><span>Phone or laptop — the sites are mobile-first because that's how their customers will see them too.</span></div>
+    <div class="how-it"><b>Tap 中文, then EN</b><span>The language toggle is the “wow” moment: their shop, finally readable by the Japanese and Western tourists already walking past.</span></div>
+    <div class="how-it"><b>Hit the LINE button</b><span>Show that bookings and questions land in the LINE account they already use. No new tools to learn.</span></div>
+  </div>
+</div>
+
+<div class="wrap"><footer>
+  Demo kit by <a href="mailto:goswami.deepan@gmail.com">Deepan Goswami</a> · businesses, menus, addresses and reviews on these pages are fictional placeholders — swap in the prospect's real details before pitching.
+</footer></div>
+
+</body>
+</html>

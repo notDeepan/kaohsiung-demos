@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Takao Pantry 打狗果舖 — Dried Fruit, Pineapple Cakes &amp; Tea from Kaohsiung · Ships Worldwide</title>
+<meta name="description" content="Small-batch dried fruit, pineapple cakes and mountain tea from southern Taiwan farms. Vacuum-sealed, English labels, worldwide shipping. LINE Pay and credit card accepted.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23a63d2f'/%3E%3Ctext x='32' y='44' font-size='30' text-anchor='middle' fill='%23f6e8c8' font-family='serif'%3E果%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fdf9ef; --paper:#fffefa; --ink:#33231b; --soft:#7a6a5d;
+  --red:#a63d2f; --red-d:#8a2f23; --gold:#d9a441; --gold-d:#b8862e; --leaf:#3e6b48;
+  --line:#06c755; --line-d:#05a948;
+  --serif:'Fraunces','Noto Serif TC','PMingLiU',Georgia,serif;
+  --tc:'Noto Serif TC','PMingLiU',serif;
+  --sans:'Karla','Noto Sans TC','Microsoft JhengHei',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans)}
+section{scroll-margin-top:84px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);line-height:1.25;font-weight:600}
+h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:10px}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:10px}
+.sub{color:var(--soft);max-width:40em}
+
+.zh{display:none}
+body.zh-mode .en{display:none}
+body.zh-mode span.zh,body.zh-mode a.zh,body.zh-mode strong.zh,body.zh-mode b.zh,body.zh-mode em.zh,body.zh-mode small.zh{display:inline}
+body.zh-mode p.zh,body.zh-mode div.zh,body.zh-mode h1.zh,body.zh-mode h2.zh,body.zh-mode h3.zh,body.zh-mode h4.zh,body.zh-mode li.zh{display:block}
+
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(253,249,239,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(51,35,27,.08)}
+.nav-in{display:flex;align-items:center;gap:18px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:19px}
+.brand .mark{width:36px;height:36px;border-radius:10px;background:var(--red);color:#f6e8c8;display:grid;place-items:center;font-family:var(--tc);font-size:19px;flex:none}
+.navlinks{display:flex;align-items:center;gap:20px;margin-left:auto}
+.navlinks>a{font-weight:700;font-size:14.5px}
+.navlinks>a:hover{color:var(--red)}
+.pill-btn{border:1.5px solid rgba(51,35,27,.25);background:transparent;border-radius:99px;padding:5px 13px;font-weight:700;font-size:13px;cursor:pointer;transition:.2s;color:var(--ink)}
+.pill-btn:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);border:none;border-radius:99px;padding:9px 18px;font-weight:700;font-size:14px;cursor:pointer}
+.cart-btn:hover{background:var(--red)}
+.cart-btn svg{width:17px;height:17px}
+.cart-n{background:var(--gold);color:var(--ink);border-radius:99px;font-size:12px;min-width:20px;height:20px;display:grid;place-items:center;padding:0 5px}
+.burger{display:none;background:none;border:none;cursor:pointer;width:42px;height:42px}
+.burger span{display:block;height:2.5px;background:var(--ink);margin:5px 8px;border-radius:2px;transition:.3s}
+
+.hero{position:relative;padding:150px 0 90px;overflow:hidden;
+  background:linear-gradient(150deg,#8a2f23 0%,#a63d2f 55%,#c05c38 100%);color:#fdf3dd}
+.hero::before{content:"果";position:absolute;right:-40px;top:30px;font-family:var(--tc);font-weight:900;font-size:380px;line-height:1;color:rgba(253,243,221,.07);pointer-events:none}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.chip{background:rgba(253,243,221,.12);border:1px solid rgba(253,243,221,.4);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:700}
+.hero h1{font-size:clamp(36px,5.6vw,60px);font-weight:700;margin-bottom:18px;text-wrap:balance}
+.lede{font-size:clamp(16px,2vw,18.5px);max-width:32em;opacity:.95;margin-bottom:30px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:99px;padding:13px 26px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#e6b554}
+.btn-ghost{background:transparent;color:#fdf3dd;border:1.5px solid rgba(253,243,221,.6)}
+.btn-ghost:hover{background:rgba(253,243,221,.12)}
+.hero-tiles{position:relative;height:340px}
+.h-tile{position:absolute;width:170px;aspect-ratio:1;border-radius:16px;display:grid;place-items:center;box-shadow:0 18px 40px rgba(40,12,8,.35);border:1px solid rgba(253,243,221,.25)}
+.h-tile span{writing-mode:vertical-rl;font-family:var(--tc);font-weight:900;font-size:34px;letter-spacing:6px;color:#fdf3dd}
+.h-tile small{position:absolute;bottom:10px;left:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,243,221,.8)}
+.h-t1{background:linear-gradient(160deg,#b8862e,#d9a441);top:8px;right:130px;transform:rotate(-7deg)}
+.h-t2{background:linear-gradient(160deg,#3e6b48,#5d8a64);top:105px;right:0;transform:rotate(5deg)}
+.h-t3{background:linear-gradient(160deg,#7c2d1f,#a64833);top:185px;right:185px;transform:rotate(-3deg)}
+
+.shop{padding:90px 0}
+.shop-head{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.cur-note{font-size:13px;color:var(--soft)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--paper);border:1px solid rgba(51,35,27,.09);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(51,35,27,.05);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(51,35,27,.12)}
+.tile{position:relative;aspect-ratio:1;display:grid;place-items:center;border-bottom:1px solid rgba(51,35,27,.07)}
+.tile .frame{position:absolute;inset:12px;border:1.5px solid rgba(253,243,221,.55);border-radius:10px;pointer-events:none}
+.tile .vert{writing-mode:vertical-rl;font-family:var(--tc);font-weight:900;font-size:44px;letter-spacing:10px;color:#fdf3dd;text-shadow:0 2px 14px rgba(40,12,8,.25)}
+.tile .seal{position:absolute;right:22px;bottom:20px;width:40px;height:40px;border:2px solid rgba(253,243,221,.85);border-radius:50%;display:grid;place-items:center;font-family:var(--tc);font-size:18px;color:#fdf3dd;transform:rotate(-8deg)}
+.tile .tag{position:absolute;left:18px;top:18px;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;border-radius:6px;padding:3px 9px;letter-spacing:.06em}
+.card-bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:18px;line-height:1.3}
+.card h3 small{display:block;font-family:var(--sans);font-weight:500;color:var(--soft);font-size:13px;margin-top:2px}
+.card .desc{font-size:13.5px;color:var(--soft);flex:1}
+.card .meta{font-size:12px;color:var(--soft);letter-spacing:.04em}
+.card-ft{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.pr{font-family:var(--serif);font-weight:700;font-size:19px}
+.add{background:var(--red);color:#fdf3dd;border:none;border-radius:99px;padding:9px 18px;font-weight:700;font-size:13.5px;cursor:pointer;transition:background .2s}
+.add:hover{background:var(--red-d)}
+.add.added{background:var(--leaf)}
+
+.story{background:#f4ecdb;border-block:1px solid rgba(51,35,27,.07);padding:90px 0}
+.story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
+.story p{color:var(--soft);margin-bottom:14px;font-size:16px}
+.farm-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+.farm{background:var(--paper);border:1px solid rgba(51,35,27,.12);border-radius:99px;padding:6px 15px;font-size:13.5px;font-weight:700;color:var(--leaf)}
+.story-ph{position:relative;aspect-ratio:4/3.4;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#d9a441,#c05c38)}
+.story-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+
+.ship{padding:90px 0}
+.ship-rows{display:grid;gap:14px;margin-top:30px}
+.srow{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px;align-items:center;background:var(--paper);border:1px solid rgba(51,35,27,.09);border-radius:14px;padding:18px 22px}
+.srow b{font-size:16px}
+.srow span{color:var(--soft);font-size:14.5px}
+.srow .fee{font-weight:700;color:var(--ink);text-align:right}
+.customs{margin-top:22px;background:rgba(217,164,65,.15);border:1px solid rgba(217,164,65,.55);border-radius:14px;padding:16px 20px;font-size:14.5px}
+.stockists{margin-top:46px}
+.stockists h3{font-size:19px;margin-bottom:12px}
+.stk{display:flex;flex-wrap:wrap;gap:12px}
+.stk span{background:var(--paper);border:1px solid rgba(51,35,27,.1);border-radius:12px;padding:10px 16px;font-size:14px;font-weight:700}
+
+footer.site{background:#2a1a13;color:#cbb49a;padding:52px 0 40px;font-size:14px}
+.f-grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between}
+.f-brand{font-family:var(--serif);font-size:20px;color:#f6e8c8;margin-bottom:8px}
+.credit{margin-top:34px;padding-top:18px;border-top:1px solid rgba(246,232,200,.12);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;font-size:13px}
+.credit a{color:var(--gold);font-weight:700}
+
+/* cart drawer */
+.ovl{position:fixed;inset:0;background:rgba(42,26,19,.5);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.ovl.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--paper);z-index:95;transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.25,1);display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(42,26,19,.25)}
+.drawer.show{transform:none}
+.dr-top{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(51,35,27,.1)}
+.dr-top h3{font-size:20px}
+.x{background:none;border:none;font-size:26px;cursor:pointer;color:var(--soft);line-height:1}
+.dr-body{flex:1;overflow:auto;padding:10px 24px}
+.crow{display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px dashed rgba(51,35,27,.14)}
+.crow .ct{width:52px;height:52px;border-radius:10px;flex:none;display:grid;place-items:center;font-family:var(--tc);font-weight:900;color:#fdf3dd;font-size:15px}
+.crow .ci{flex:1;min-width:0}
+.crow .ci b{font-size:14.5px;display:block;line-height:1.3}
+.crow .ci small{color:var(--soft);font-size:12.5px}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:26px;height:26px;border-radius:8px;border:1.5px solid rgba(51,35,27,.2);background:#fff;cursor:pointer;font-weight:700;font-size:14px;color:var(--ink)}
+.qty button:hover{border-color:var(--red);color:var(--red)}
+.crow .lp{font-weight:700;font-size:14px;width:84px;text-align:right;flex:none}
+.empty-msg{text-align:center;color:var(--soft);padding:60px 10px;font-size:15px}
+.dr-foot{padding:18px 24px 24px;border-top:1px solid rgba(51,35,27,.1);background:var(--cream)}
+.shipbar{height:7px;border-radius:99px;background:rgba(51,35,27,.1);overflow:hidden;margin:8px 0 6px}
+.shipbar i{display:block;height:100%;background:var(--leaf);border-radius:99px;transition:width .4s}
+.shipmsg{font-size:12.5px;color:var(--soft);margin-bottom:12px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;margin-bottom:14px}
+.tot b{font-family:var(--serif);font-size:22px}
+.checkout{width:100%;background:var(--red);color:#fdf3dd;border:none;border-radius:14px;padding:15px;font-weight:700;font-size:16px;cursor:pointer}
+.checkout:hover{background:var(--red-d)}
+.checkout:disabled{opacity:.4;cursor:default}
+
+/* checkout modal */
+.modal{position:fixed;inset:0;display:grid;place-items:center;padding:20px;z-index:99;opacity:0;pointer-events:none;transition:.25s}
+.modal.show{opacity:1;pointer-events:auto}
+.mcardx{background:var(--paper);border-radius:20px;max-width:430px;width:100%;padding:28px;box-shadow:0 30px 80px rgba(42,26,19,.4);transform:translateY(14px);transition:.25s}
+.modal.show .mcardx{transform:none}
+.mcardx h3{font-size:21px;margin-bottom:4px}
+.mcardx .msub{color:var(--soft);font-size:14px;margin-bottom:18px}
+.pay{display:grid;gap:10px;margin-bottom:18px}
+.pay label{display:flex;align-items:center;gap:12px;border:1.5px solid rgba(51,35,27,.15);border-radius:12px;padding:13px 16px;cursor:pointer;font-weight:700;font-size:14.5px;transition:.15s}
+.pay label:hover{border-color:var(--red)}
+.pay input{accent-color:var(--red);width:17px;height:17px}
+.pay label:has(input:checked){border-color:var(--red);background:rgba(166,61,47,.05)}
+.pay .pico{margin-left:auto;font-size:11.5px;color:var(--soft);font-weight:500}
+.demo-note{font-size:12px;color:var(--soft);text-align:center;margin-top:12px}
+.m-done{display:none;text-align:center;padding:14px 0 4px}
+.m-done.show{display:block}
+.m-done .tick{width:64px;height:64px;border-radius:50%;background:rgba(62,107,72,.12);color:var(--leaf);display:grid;place-items:center;margin:0 auto 14px;font-size:30px}
+.m-done h3{margin-bottom:6px}
+.m-done p{color:var(--soft);font-size:14.5px}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:960px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-tiles{display:none}
+  .grid{grid-template-columns:1fr 1fr}
+  .story-grid{grid-template-columns:1fr}
+  .srow{grid-template-columns:1fr;gap:4px}
+  .srow .fee{text-align:left}
+}
+@media (max-width:860px){
+  .navlinks{position:fixed;top:68px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;padding:18px 24px 24px;gap:4px;box-shadow:0 14px 30px rgba(51,35,27,.15);transform:translateY(-130%);transition:transform .3s;z-index:49}
+  .navlinks.open{transform:none}
+  .navlinks>a{padding:12px 4px;border-bottom:1px solid rgba(51,35,27,.07);font-size:16px}
+  .navlinks .pill-btn{margin-top:14px;align-self:flex-start}
+  .burger{display:block}
+  body.nav-open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  body.nav-open .burger span:nth-child(2){opacity:0}
+  body.nav-open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+}
+@media (max-width:620px){ .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="mark">果</span><span>Takao Pantry <span style="font-weight:500">打狗果舖</span></span></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#shop"><span class="en">Shop</span><span class="zh">商品</span></a>
+      <a href="#story"><span class="en">Our story</span><span class="zh">品牌故事</span></a>
+      <a href="#shipping"><span class="en">Shipping</span><span class="zh">配送</span></a>
+      <button class="pill-btn" id="curBtn" title="≈ NT$31.5 / US$1" onclick="toggleCur()">NT$ ⇄ US$</button>
+      <button class="pill-btn" onclick="toggleLang()" aria-label="Switch language"><span class="en">中文</span><span class="zh">EN</span></button>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+      <span class="en">Cart</span><span class="zh">購物籃</span><span class="cart-n" id="cartCount">0</span>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <div class="chips">
+        <span class="chip"><span class="en">Ships worldwide</span><span class="zh">全球配送</span></span>
+        <span class="chip"><span class="en">Free TW shipping over NT$1,000</span><span class="zh">台灣滿千免運</span></span>
+        <span class="chip"><span class="en">Gift-ready packaging</span><span class="zh">禮盒包裝</span></span>
+      </div>
+      <h1 class="en">Kaohsiung's orchards, packed to travel.</h1>
+      <h1 class="zh">把高雄的果園,打包帶回家。</h1>
+      <p class="lede en">Small-batch dried fruit, pineapple cakes and mountain tea from southern Taiwan farms — vacuum-sealed, labeled in English, shipped worldwide.</p>
+      <p class="lede zh">南台灣小農的果乾、鳳梨酥與高山茶——真空包裝、英文標示,寄到全世界。</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#shop"><span class="en">Shop bestsellers</span><span class="zh">逛熱銷商品</span></a>
+        <a class="btn btn-ghost" href="#shipping"><span class="en">Shipping info</span><span class="zh">配送說明</span></a>
+      </div>
+    </div>
+    <div class="hero-tiles" aria-hidden="true">
+      <div class="h-tile h-t1"><span>鳳梨酥</span><small>pineapple cake</small></div>
+      <div class="h-tile h-t2"><span>桂花烏龍</span><small>osmanthus oolong</small></div>
+      <div class="h-tile h-t3"><span>玉荷包</span><small>dried lychee</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="shop-head rv">
+      <div>
+        <p class="kicker"><span class="en">The pantry</span><span class="zh">商品</span></p>
+        <h2 class="en">Six things we're proud of</h2>
+        <h2 class="zh">六樣我們最自豪的味道</h2>
+      </div>
+      <p class="cur-note"><span class="en">Prices in <b id="curLblEn">NT$</b> · toggle NT$ ⇄ US$ in the menu</span><span class="zh">目前幣別:<b id="curLblZh">新台幣</b>・選單可切換 NT$ ⇄ US$</span></p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="rv">
+      <p class="kicker"><span class="en">Our story</span><span class="zh">品牌故事</span></p>
+      <h2 class="en">From Dashu farms to your suitcase</h2>
+      <h2 class="zh">從大樹果園,到你的行李箱</h2>
+      <p class="en">We're a two-person team from Kaohsiung. Every season we buy directly from five family farms in Dashu and Qishan — golden-diamond pineapples, Yuhebao lychees, red guavas — and dry them slowly at low heat. No added sugar, no preservatives, nothing to hide.</p>
+      <p class="zh">我們是來自高雄的兩人小團隊。每一季直接向大樹、旗山的五戶果農採購——金鑽鳳梨、玉荷包荔枝、紅心芭樂——低溫慢烘,不加糖、無防腐劑,沒什麼好隱瞞的。</p>
+      <p class="en">You met us at the night market or the airport. Now we can come to you.</p>
+      <p class="zh">你或許在夜市或機場遇過我們。現在,換我們寄到你家。</p>
+      <div class="farm-chips">
+        <span class="farm"><span class="en">Dashu pineapple 大樹鳳梨</span><span class="zh">大樹金鑽鳳梨</span></span>
+        <span class="farm"><span class="en">Yuhebao lychee 玉荷包</span><span class="zh">大樹玉荷包</span></span>
+        <span class="farm"><span class="en">Alishan-foothill tea 山麓茶園</span><span class="zh">阿里山山麓茶園</span></span>
+      </div>
+    </div>
+    <div class="story-ph rv">
+      <img loading="lazy" alt="Pineapple on a table" src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?q=80&w=1100&auto=format&fit=crop" onload="this.style.opacity=1" onerror="this.remove()">
+    </div>
+  </div>
+</section>
+
+<section class="ship" id="shipping">
+  <div class="wrap">
+    <p class="kicker rv"><span class="en">Shipping</span><span class="zh">配送</span></p>
+    <h2 class="rv en">We pack it like it's going far</h2>
+    <h2 class="rv zh">每一箱,都當作要去遠方</h2>
+    <div class="ship-rows">
+      <div class="srow rv"><b><span class="en">Taiwan</span><span class="zh">台灣</span></b><span><span class="en">1–2 days, 7-11 pickup OK</span><span class="zh">1–2 天,可超商取貨</span></span><span class="fee"><span class="en">NT$80 · free over NT$1,000</span><span class="zh">NT$80・滿千免運</span></span></div>
+      <div class="srow rv"><b><span class="en">Asia</span><span class="zh">亞洲</span> <small style="color:var(--soft);font-weight:500">JP · KR · SG · HK · MY</small></b><span><span class="en">3–6 days, tracked EMS</span><span class="zh">3–6 天,EMS 掛號</span></span><span class="fee"><span class="en">from NT$280</span><span class="zh">NT$280 起</span></span></div>
+      <div class="srow rv"><b><span class="en">Worldwide</span><span class="zh">全球</span></b><span><span class="en">7–14 days, tracked</span><span class="zh">7–14 天,可追蹤</span></span><span class="fee"><span class="en">from NT$520</span><span class="zh">NT$520 起</span></span></div>
+    </div>
+    <div class="customs rv">
+      <span class="en"><b>Customs note:</b> dried fruit and tea clear customs in most countries. Australia &amp; New Zealand are strict — message us before ordering. Every pack carries a full English ingredient label.</span>
+      <span class="zh"><b>海關提醒:</b>果乾與茶葉在多數國家可正常通關;澳洲與紐西蘭規定嚴格,下單前請先詢問。所有包裝皆附完整英文成分標示。</span>
+    </div>
+    <div class="stockists rv">
+      <h3><span class="en">Prefer to buy in person?</span><span class="zh">想現場購買?</span></h3>
+      <div class="stk">
+        <span><span class="en">KH Int'l Airport · T1 souvenir hall</span><span class="zh">高雄國際機場一航廈伴手禮區</span></span>
+        <span><span class="en">Pier-2 select shop</span><span class="zh">駁二選品店</span></span>
+        <span><span class="en">Liuhe Night Market · stall 36 (Fri–Sun)</span><span class="zh">六合夜市 36 攤(五–日)</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand">Takao Pantry 打狗果舖</div>
+        <p class="en">Made in Kaohsiung · ships from Sanmin District</p>
+        <p class="zh">高雄製造・三民區出貨</p>
+      </div>
+      <div>
+        <p>hello@takaopantry.tw · LINE @takaopantry</p>
+        <p><span class="en">LINE Pay · Credit · JCB — via ECPay</span><span class="zh">LINE Pay・信用卡・JCB——綠界金流</span></p>
+      </div>
+    </div>
+    <div class="credit">
+      <span>© <span id="yr"></span> Takao Pantry <span class="en">— demo mockup</span><span class="zh">— 示範網站</span></span>
+      <span><span class="en">Bilingual store by</span><span class="zh">雙語商店設計:</span> <a href="mailto:goswami.deepan@gmail.com">Deepan Goswami</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- cart drawer -->
+<div class="ovl" id="ovl"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="dr-top">
+    <h3><span class="en">Your basket</span><span class="zh">購物籃</span></h3>
+    <button class="x" id="closeDr" aria-label="Close">×</button>
+  </div>
+  <div class="dr-body" id="cartRows"></div>
+  <div class="dr-foot">
+    <div class="shipbar"><i id="shipFill" style="width:0%"></i></div>
+    <div class="shipmsg" id="shipMsg"></div>
+    <div class="tot"><span><span class="en">Subtotal</span><span class="zh">小計</span></span><b id="subT">NT$0</b></div>
+    <button class="checkout" id="checkoutBtn"><span class="en">Checkout</span><span class="zh">前往結帳</span></button>
+  </div>
+</aside>
+
+<!-- checkout modal -->
+<div class="modal" id="ckModal">
+  <div class="mcardx">
+    <div id="ckBody">
+      <h3><span class="en">Checkout</span><span class="zh">結帳</span></h3>
+      <p class="msub"><span class="en">Choose how you'd like to pay.</span><span class="zh">請選擇付款方式。</span></p>
+      <div class="pay">
+        <label><input type="radio" name="pay" checked> LINE Pay <span class="pico">instant 即時</span></label>
+        <label><input type="radio" name="pay"> <span class="en">Credit card · JCB</span><span class="zh">信用卡・JCB</span> <span class="pico">ECPay 綠界</span></label>
+        <label><input type="radio" name="pay"> <span class="en">ATM transfer</span><span class="zh">ATM 虛擬帳號</span> <span class="pico">24h</span></label>
+      </div>
+      <div class="tot"><span><span class="en">Total</span><span class="zh">合計</span></span><b id="ckTotal">NT$0</b></div>
+      <button class="checkout" id="placeBtn"><span class="en">Place order</span><span class="zh">送出訂單</span></button>
+      <p class="demo-note"><span class="en">Demo checkout — no payment is processed.</span><span class="zh">示範結帳——不會實際扣款。</span></p>
+    </div>
+    <div class="m-done" id="ckDone">
+      <div class="tick">✓</div>
+      <h3><span class="en">Order received!</span><span class="zh">訂單已成立!</span></h3>
+      <p id="orderNo" style="font-weight:700;margin-bottom:6px"></p>
+      <p class="en">We'll email your tracking number after dispatch — thank you!</p>
+      <p class="zh">出貨後會寄送追蹤碼到您的信箱——謝謝您!</p>
+      <button class="checkout" id="doneBtn" style="margin-top:16px"><span class="en">Keep browsing</span><span class="zh">繼續逛逛</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- products ----
+const P = [
+  {id:'pc', en:'Pineapple Cake Gift Box', zh:'土鳳梨酥禮盒', sub:'10 pcs · 480 g', den:'Dashu golden-diamond pineapple, slow-cooked jam, buttery shortcrust.', dzh:'大樹金鑽鳳梨慢熬內餡,厚奶油酥皮。', twd:450, tile:'鳳梨酥', g:'linear-gradient(160deg,#b8862e,#d9a441)', best:true},
+  {id:'ly', en:'Dried Yuhebao Lychee', zh:'玉荷包荔枝乾', sub:'150 g', den:"Kaohsiung's prized Yuhebao lychee, sun-dried whole in the shell.", dzh:'高雄大樹玉荷包,整顆帶殼日曬。', twd:240, tile:'玉荷包', g:'linear-gradient(160deg,#7c2d1f,#a64833)', best:true},
+  {id:'mg', en:'Dried Irwin Mango', zh:'愛文芒果乾', sub:'120 g', den:'Soft-dried Irwin mango, no added sugar.', dzh:'愛文芒果低溫烘乾,完全不加糖。', twd:190, tile:'芒果乾', g:'linear-gradient(160deg,#c05c38,#e0913f)', best:false},
+  {id:'gv', en:'Dried Red Guava', zh:'紅心芭樂乾', sub:'130 g', den:'Pink guava with a whisper of plum powder.', dzh:'紅心芭樂,撒一點點梅粉。', twd:160, tile:'芭樂乾', g:'linear-gradient(160deg,#a64862,#c76a7e)', best:false},
+  {id:'bt', en:'Honey-Scented Black Tea', zh:'蜜香紅茶', sub:'50 g loose leaf', den:'Leafhopper-bitten leaves with a natural honey note.', dzh:'小綠葉蟬著涎,自然蜜香。', twd:280, tile:'蜜香紅茶', g:'linear-gradient(160deg,#5a3a22,#8a5c33)', best:false},
+  {id:'ol', en:'Osmanthus Oolong', zh:'桂花烏龍', sub:'75 g loose leaf', den:'High-mountain oolong scented with fresh osmanthus blossom.', dzh:'高山烏龍,以新鮮桂花窨製。', twd:300, tile:'桂花烏龍', g:'linear-gradient(160deg,#3e6b48,#5d8a64)', best:false},
+];
+const RATE = 31.5;
+let cart = {};
+let cur = 'twd';
+try{
+  cart = JSON.parse(localStorage.getItem('tpCart') || '{}');
+  cur = localStorage.getItem('tpCur') || 'twd';
+}catch(e){}
+
+const fmt = twd => cur === 'twd' ? 'NT$' + twd.toLocaleString() : 'US$' + (twd/RATE).toFixed(2);
+
+// ---- render products ----
+function renderGrid(){
+  document.getElementById('grid').innerHTML = P.map(p => `
+    <article class="card rv in">
+      <div class="tile" style="background:${p.g}">
+        <span class="frame"></span>
+        ${p.best ? '<span class="tag">BESTSELLER 熱銷</span>' : ''}
+        <span class="vert">${p.tile}</span>
+        <span class="seal">果</span>
+      </div>
+      <div class="card-bd">
+        <h3>${p.en}<small>${p.zh} · ${p.sub}</small></h3>
+        <p class="desc"><span class="en">${p.den}</span><span class="zh">${p.dzh}</span></p>
+        <div class="card-ft">
+          <span class="pr">${fmt(p.twd)}</span>
+          <button class="add" data-id="${p.id}"><span class="en">Add to cart</span><span class="zh">加入購物籃</span></button>
+        </div>
+      </div>
+    </article>`).join('');
+}
+
+// ---- cart ----
+const save = () => { try{ localStorage.setItem('tpCart', JSON.stringify(cart)); }catch(e){} };
+const items = () => Object.entries(cart).filter(([,q]) => q > 0);
+const subtotal = () => items().reduce((s,[id,q]) => s + P.find(p => p.id === id).twd * q, 0);
+
+function renderCart(){
+  const rows = document.getElementById('cartRows');
+  const its = items();
+  document.getElementById('cartCount').textContent = its.reduce((s,[,q]) => s + q, 0);
+  if(!its.length){
+    rows.innerHTML = '<div class="empty-msg"><span class="en">Your basket is empty — go grab something tasty.</span><span class="zh">購物籃是空的——去挑點好吃的吧。</span></div>';
+  } else {
+    rows.innerHTML = its.map(([id,q]) => {
+      const p = P.find(x => x.id === id);
+      return `<div class="crow">
+        <span class="ct" style="background:${p.g}">${p.tile.slice(0,2)}</span>
+        <span class="ci"><b>${p.en}</b><small>${p.zh} · ${fmt(p.twd)}</small></span>
+        <span class="qty"><button data-a="-" data-id="${id}">−</button>${q}<button data-a="+" data-id="${id}">+</button></span>
+        <span class="lp">${fmt(p.twd*q)}</span>
+      </div>`;
+    }).join('');
+  }
+  const st = subtotal();
+  document.getElementById('subT').textContent = fmt(st);
+  document.getElementById('ckTotal').textContent = fmt(st);
+  const pct = Math.min(100, st/1000*100);
+  document.getElementById('shipFill').style.width = pct + '%';
+  document.getElementById('shipMsg').innerHTML = st >= 1000
+    ? '<span class="en"><b>Free Taiwan shipping unlocked.</b></span><span class="zh"><b>已達台灣免運門檻。</b></span>'
+    : '<span class="en">' + fmt(1000-st) + ' away from free Taiwan shipping</span><span class="zh">再 ' + fmt(1000-st) + ' 即享台灣免運</span>';
+  document.getElementById('checkoutBtn').disabled = !its.length;
+}
+
+document.getElementById('grid').addEventListener('click', e => {
+  const b = e.target.closest('.add');
+  if(!b) return;
+  cart[b.dataset.id] = (cart[b.dataset.id] || 0) + 1;
+  save(); renderCart();
+  b.classList.add('added');
+  const en = b.querySelector('.en'), zh = b.querySelector('.zh');
+  en.textContent = 'Added ✓'; zh.textContent = '已加入 ✓';
+  setTimeout(() => { b.classList.remove('added'); en.textContent = 'Add to cart'; zh.textContent = '加入購物籃'; }, 900);
+});
+document.getElementById('cartRows').addEventListener('click', e => {
+  const b = e.target.closest('button[data-a]');
+  if(!b) return;
+  const id = b.dataset.id;
+  cart[id] = (cart[id] || 0) + (b.dataset.a === '+' ? 1 : -1);
+  if(cart[id] <= 0) delete cart[id];
+  save(); renderCart();
+});
+
+// ---- drawer & modal ----
+const drawer = document.getElementById('drawer'), ovl = document.getElementById('ovl'), modal = document.getElementById('ckModal');
+const openDr = () => { drawer.classList.add('show'); ovl.classList.add('show'); };
+const closeAll = () => { drawer.classList.remove('show'); ovl.classList.remove('show'); modal.classList.remove('show'); };
+document.getElementById('cartBtn').addEventListener('click', openDr);
+document.getElementById('closeDr').addEventListener('click', closeAll);
+ovl.addEventListener('click', closeAll);
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+  drawer.classList.remove('show');
+  document.getElementById('ckBody').style.display = 'block';
+  document.getElementById('ckDone').classList.remove('show');
+  modal.classList.add('show'); ovl.classList.add('show');
+});
+document.getElementById('placeBtn').addEventListener('click', () => {
+  document.getElementById('orderNo').textContent = 'Order 訂單 #DEMO-' + Math.floor(1000 + Math.random()*9000);
+  document.getElementById('ckBody').style.display = 'none';
+  document.getElementById('ckDone').classList.add('show');
+  cart = {}; save(); renderCart();
+});
+document.getElementById('doneBtn').addEventListener('click', closeAll);
+modal.addEventListener('click', e => { if(e.target === modal) closeAll(); });
+
+// ---- currency ----
+function toggleCur(){
+  cur = cur === 'twd' ? 'usd' : 'twd';
+  try{ localStorage.setItem('tpCur', cur); }catch(e){}
+  document.getElementById('curLblEn').textContent = cur === 'twd' ? 'NT$' : 'US$';
+  document.getElementById('curLblZh').textContent = cur === 'twd' ? '新台幣' : '美元';
+  renderGrid(); renderCart();
+}
+
+// ---- language ----
+function setLang(l){
+  document.body.classList.toggle('zh-mode', l === 'zh');
+  document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en';
+  try{ localStorage.setItem('demoLang', l); }catch(e){}
+}
+function toggleLang(){ setLang(document.body.classList.contains('zh-mode') ? 'en' : 'zh'); }
+try{ if(localStorage.getItem('demoLang') === 'zh') setLang('zh'); }catch(e){}
+
+// ---- nav ----
+const links = document.getElementById('navlinks');
+document.getElementById('burger').addEventListener('click', () => {
+  links.classList.toggle('open'); document.body.classList.toggle('nav-open');
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  links.classList.remove('open'); document.body.classList.remove('nav-open');
+}));
+
+// ---- reveal ----
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.12});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+document.getElementById('curLblEn').textContent = cur === 'twd' ? 'NT$' : 'US$';
+document.getElementById('curLblZh').textContent = cur === 'twd' ? '新台幣' : '美元';
+renderGrid(); renderCart();
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
