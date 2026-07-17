@@ -11,9 +11,9 @@
 
 <link rel="stylesheet" href="../assets/fonts/instrument-serif/instrument-serif.css">
 <link rel="stylesheet" href="../assets/fonts/general-sans/general-sans.css">
-<!-- CJK font css is large (unicode-range subsets) — load off the critical path -->
-<link rel="stylesheet" media="print" onload="this.onload=null;this.media='all'" href="../assets/fonts/lxgw-wenkai-tc/lxgw-wenkai-tc-400.css">
-<link rel="stylesheet" media="print" onload="this.onload=null;this.media='all'" href="../assets/fonts/noto-sans-tc/noto-sans-tc.css">
+<!-- CJK font css is large (unicode-range subsets) — activated after first paint, see script -->
+<link rel="stylesheet" media="x-defer" href="../assets/fonts/lxgw-wenkai-tc/lxgw-wenkai-tc-400.css">
+<link rel="stylesheet" media="x-defer" href="../assets/fonts/noto-sans-tc/noto-sans-tc.css">
 <noscript>
 <link rel="stylesheet" href="../assets/fonts/lxgw-wenkai-tc/lxgw-wenkai-tc-400.css">
 <link rel="stylesheet" href="../assets/fonts/noto-sans-tc/noto-sans-tc.css">
@@ -534,6 +534,11 @@ footer.site{background:var(--dark-3);color:var(--cream-2);padding:clamp(56px,8vw
 <script src="../assets/vendor/ScrollTrigger.min.js"></script>
 <script src="../assets/vendor/lenis.min.js"></script>
 <script>
+/* CJK font css activates after the first painted frame (keeps chunk fetches out of the FCP path) */
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  document.querySelectorAll('link[media="x-defer"]').forEach(l => { l.media = 'all'; });
+}));
+
 /* ---------- language ---------- */
 function setLang(l){
   document.body.classList.toggle('zh-mode', l === 'zh');

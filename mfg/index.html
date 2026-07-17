@@ -11,8 +11,8 @@
 
 <link rel="stylesheet" href="../assets/fonts/archivo/archivo.css">
 <link rel="stylesheet" href="../assets/fonts/ibm-plex-mono/ibm-plex-mono.css">
-<!-- CJK font css is large (unicode-range subsets) — load off the critical path -->
-<link rel="stylesheet" media="print" onload="this.onload=null;this.media='all'" href="../assets/fonts/noto-sans-tc/noto-sans-tc.css">
+<!-- CJK font css is large (unicode-range subsets) — activated after first paint, see script -->
+<link rel="stylesheet" media="x-defer" href="../assets/fonts/noto-sans-tc/noto-sans-tc.css">
 <noscript>
 <link rel="stylesheet" href="../assets/fonts/noto-sans-tc/noto-sans-tc.css">
 </noscript>
@@ -556,6 +556,11 @@ footer.site{border-top:1px solid var(--hairl);padding:52px 0 30px;color:var(--st
 <script src="../assets/vendor/ScrollTrigger.min.js"></script>
 <script src="../assets/vendor/lenis.min.js"></script>
 <script>
+/* CJK font css activates after the first painted frame (keeps chunk fetches out of the FCP path) */
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  document.querySelectorAll('link[media="x-defer"]').forEach(l => { l.media = 'all'; });
+}));
+
 /* ---------- language ---------- */
 function setLang(l){
   document.body.classList.toggle('zh-mode', l === 'zh');
