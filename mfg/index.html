@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheng Chang Precision 鉦昌精密 — CNC Machined Components, Kaohsiung · ±0.005 mm</title>
+<meta name="description" content="CNC-machined components from Qianzhen, Kaohsiung since 1987. ±0.005 mm, ISO 9001 + IATF 16949, 23 export countries. Send a drawing, get a quote in 48 hours. 高雄前鎮 CNC 精密加工,48 小時內報價。">
+<meta property="og:title" content="Cheng Chang Precision 鉦昌精密 — ±0.005 mm. Every part. Since 1987.">
+<meta property="og:description" content="CNC machining from Kaohsiung, shipped to 23 countries. Drawing to quote in 48 hours.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23171B1F'/%3E%3Ctext x='32' y='44' font-size='30' text-anchor='middle' fill='%23E9EDF0' font-family='sans-serif' font-weight='bold'%3E鉦%3C/text%3E%3Ccircle cx='53' cy='12' r='5' fill='%23FF4E1E'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="../assets/fonts/archivo/archivo.css">
+<link rel="stylesheet" href="../assets/fonts/ibm-plex-mono/ibm-plex-mono.css">
+<!-- CJK font css is large (unicode-range subsets) — load off the critical path -->
+<link rel="stylesheet" media="print" onload="this.onload=null;this.media='all'" href="../assets/fonts/noto-sans-tc/noto-sans-tc.css">
+<noscript>
+<link rel="stylesheet" href="../assets/fonts/noto-sans-tc/noto-sans-tc.css">
+</noscript>
+
+<script>
+document.documentElement.classList.add('js');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('mok');
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Cheng Chang Precision Ind. Co., Ltd. 鉦昌精密工業股份有限公司","foundingDate":"1987","address":{"@type":"PostalAddress","streetAddress":"118 Xingye Rd., Qianzhen District","addressLocality":"Kaohsiung","postalCode":"806","addressCountry":"TW"},"email":"rfq@chengchang-precision.tw","telephone":"+886-7-812-3346","description":"CNC-machined components. ISO 9001:2015, IATF 16949:2016. Export to 23 countries."}
+</script>
+
+<style>
+/* ============ tokens — drawing office ============ */
+:root{
+  --gm:#171B1F; --panel:#1F252B; --panel-2:#232A31;
+  --hairl:#313A42; --hair-soft:rgba(127,166,184,.16);
+  --silver:#E9EDF0; --steel:#9AA7B0; --steel-2:#6E7B85;
+  --orange:#FF4E1E; --orange-d:#E5430F;
+  --cyan:#7FA6B8; --cyan-soft:rgba(127,166,184,.55);
+  --disp:'Archivo','Noto Sans TC','Microsoft JhengHei',sans-serif;
+  --mono:'IBM Plex Mono',Consolas,monospace;
+  --pad:clamp(20px,4.5vw,52px);
+  --ez:cubic-bezier(.6,.05,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto}
+body{background:var(--gm);color:var(--silver);font-family:var(--disp);font-size:16px;
+  line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+:lang(zh-Hant) body{line-height:1.75}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit}
+input,select,textarea{font-family:inherit}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+::selection{background:var(--orange);color:var(--gm)}
+.zh{display:none}
+body.zh-mode .en{display:none}
+body.zh-mode span.zh,body.zh-mode a.zh,body.zh-mode strong.zh,body.zh-mode em.zh,body.zh-mode small.zh,body.zh-mode b.zh{display:inline}
+body.zh-mode p.zh,body.zh-mode div.zh,body.zh-mode h1.zh,body.zh-mode h2.zh,body.zh-mode h3.zh,body.zh-mode li.zh{display:block}
+.zh,[lang="zh-Hant"]{letter-spacing:0;font-style:normal}
+
+/* engineering grid + vignette + sheen — never flat */
+.gridbg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(90% 60% at 28% 8%,rgba(233,237,240,.05) 0%,transparent 60%),
+    repeating-linear-gradient(0deg,var(--hair-soft) 0 1px,transparent 1px 72px),
+    repeating-linear-gradient(90deg,var(--hair-soft) 0 1px,transparent 1px 72px);
+  opacity:.5}
+.gridbg::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 220px 60px rgba(10,12,14,.75)}
+main,header,footer{position:relative;z-index:1}
+
+/* type voices */
+.h-disp{font-weight:800;font-stretch:122%;letter-spacing:-.015em;line-height:1.02;color:#fff}
+body.zh-mode .h-disp,.h-disp .zh{font-family:'Noto Sans TC',var(--disp);font-weight:900;font-stretch:100%;letter-spacing:.01em}
+.mono{font-family:var(--mono)}
+.lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+.lab .zh{letter-spacing:.1em}
+
+/* dimension-line component (the signature) */
+.dim{position:relative;padding-top:12px}
+.dl-line{position:relative;display:block;height:1px;background:var(--cyan-soft);transform-origin:left}
+html.mok .dl-line{transform:scaleX(0)}
+.dl-line::before,.dl-line::after{content:"";position:absolute;top:-3.5px;width:1px;height:8px;background:var(--cyan-soft);opacity:0;transition:opacity .3s .1s}
+.dl-line::before{left:0}.dl-line::after{right:0}
+.dim.drawn .dl-line::before,.dim.drawn .dl-line::after{opacity:1}
+.dim .lab{position:absolute;top:-8px;left:0}
+html.mok .rise{opacity:0;transform:translateY(26px)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;font-weight:700;font-size:14px;
+  letter-spacing:.04em;transition:background .25s,border-color .25s,color .25s;border:1px solid transparent}
+.btn-o{background:var(--orange);color:#16191D}
+.btn-o:hover{background:var(--orange-d)}
+.btn-ghost{border-color:var(--hairl);color:var(--silver)}
+.btn-ghost:hover{border-color:var(--steel)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+/* ============ loader ============ */
+#loader{position:fixed;inset:0;z-index:120;display:none}
+html.js.mok #loader{display:block}
+#loader .lp{position:absolute;left:0;right:0;height:50.5%;background:var(--gm);
+  background-image:repeating-linear-gradient(0deg,var(--hair-soft) 0 1px,transparent 1px 72px),repeating-linear-gradient(90deg,var(--hair-soft) 0 1px,transparent 1px 72px)}
+#loader .lp-t{top:0}#loader .lp-b{bottom:0}
+#loader .l-line{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--cyan);transform:scaleX(0);transform-origin:left}
+#loader .l-in{position:absolute;left:var(--pad);top:calc(50% - 74px);z-index:2}
+#loader .l-boot{font-family:var(--mono);font-size:13px;color:var(--silver);letter-spacing:.08em;min-height:20px}
+#loader .l-boot::after{content:"_";animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+#loader .l-sub{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--steel-2);margin-top:8px}
+#loader .l-ticks{display:flex;gap:5px;margin-top:22px}
+#loader .l-ticks i{width:2px;height:11px;background:var(--hairl)}
+#loader .l-ticks i.on{background:var(--cyan)}
+
+/* ============ nav ============ */
+header{position:fixed;inset:0 0 auto 0;z-index:90;transition:background .4s,box-shadow .4s}
+header.solid{background:rgba(23,27,31,.97);box-shadow:0 1px 0 var(--hairl)}
+.nav-in{display:flex;align-items:center;gap:22px;height:74px}
+.lockup{display:flex;align-items:baseline;gap:12px}
+.lockup .zh-m{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:19px;color:#fff}
+.lockup .en-m{font-family:var(--mono);font-size:10px;letter-spacing:.26em;color:var(--steel)}
+.nlinks{display:flex;align-items:center;gap:24px;margin-left:auto}
+.nlinks>a{font-size:13px;font-weight:600;color:var(--steel);letter-spacing:.03em;transition:color .2s}
+.nlinks>a:hover{color:#fff}
+.nid{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--steel-2)}
+.lang-t{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--silver);border-bottom:1px solid transparent}
+.lang-t:hover{border-color:var(--steel)}
+.btn-rfq{background:var(--orange);color:#16191D;font-weight:700;font-size:13px;padding:10px 20px;letter-spacing:.05em}
+.btn-rfq:hover{background:var(--orange-d)}
+.burger{display:none;width:44px;height:44px;position:relative;margin-left:auto}
+.burger i{position:absolute;left:11px;right:11px;height:1.5px;background:var(--silver);transition:.3s var(--ez)}
+.burger i:first-child{top:18px}.burger i:last-child{top:26px}
+body.mnav-open .burger i:first-child{top:22px;transform:rotate(45deg)}
+body.mnav-open .burger i:last-child{top:22px;transform:rotate(-45deg)}
+#mnav{position:fixed;inset:0;z-index:85;background:var(--gm);padding:120px var(--pad) 44px;display:flex;flex-direction:column;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+  background-image:repeating-linear-gradient(0deg,var(--hair-soft) 0 1px,transparent 1px 72px),repeating-linear-gradient(90deg,var(--hair-soft) 0 1px,transparent 1px 72px)}
+body.mnav-open #mnav{opacity:1;pointer-events:auto}
+#mnav a.big{font-weight:800;font-stretch:118%;font-size:clamp(28px,7.5vw,40px);color:#fff;padding:16px 0;border-bottom:1px solid var(--hairl);display:flex;justify-content:space-between;align-items:center}
+body.zh-mode #mnav a.big{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-stretch:100%}
+#mnav a.big em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--cyan);letter-spacing:.2em}
+#mnav .mfoot{margin-top:auto;display:flex;flex-direction:column;gap:16px}
+
+/* ============ hero ============ */
+.hero{min-height:100svh;min-height:660px;display:flex;flex-direction:column;justify-content:flex-end;padding-top:120px}
+.hero>.wrap{width:100%}
+.hero-g{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
+.hero-g>*{min-width:0}
+.hero-l{grid-column:1/8}
+.hero .dim{margin-bottom:26px;max-width:min(420px,100%)}
+.hval{font-size:clamp(64px,11.5vw,164px);font-variant-numeric:tabular-nums;white-space:nowrap}
+.hval .u{font-family:var(--mono);font-size:.22em;color:var(--cyan);font-weight:400;letter-spacing:.06em;margin-left:.18em;vertical-align:.32em}
+.hline2{font-size:clamp(24px,3.4vw,44px);margin-top:2px}
+.hsub{max-width:34em;color:var(--steel);font-size:15.5px;margin-top:26px}
+.hcta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-r{grid-column:8/13;position:relative}
+#partWrap{position:relative;aspect-ratio:1/1.12;max-height:560px;margin-inline:auto}
+#partWrap svg{position:absolute;inset:0;width:100%;height:100%;transition:opacity 1s var(--ez)}
+#partWrap.live svg{opacity:.22}
+#partCanvas{position:absolute;inset:0;width:100%!important;height:100%!important;opacity:0}
+.facts-strip{margin-top:clamp(44px,6vh,70px);border-top:1px solid var(--hairl);overflow-x:auto;scrollbar-width:none}
+.facts-strip::-webkit-scrollbar{display:none}
+.facts-in{display:flex;min-width:max-content;gap:0;padding-block:16px}
+.facts-in span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--steel);padding-inline:26px;border-left:1px solid var(--hairl);white-space:nowrap}
+.facts-in span:first-child{border-left:0;padding-left:0}
+.facts-in b{color:var(--silver);font-weight:500}
+
+/* ============ sections ============ */
+section.sec{padding-block:clamp(90px,12vw,160px) 0}
+.sec-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-bottom:clamp(40px,5vw,64px)}
+.sec-head .dim{grid-column:1/5}
+.sec-head h2{grid-column:1/9;font-size:clamp(34px,4.6vw,58px);margin-top:18px}
+.sec-head .sec-sub{grid-column:9/13;align-self:end;color:var(--steel);font-size:14.5px}
+
+/* capabilities table */
+.cap-t{border-top:1px solid var(--hairl)}
+.cap-r{display:grid;grid-template-columns:2.2fr 1.6fr 1.2fr .6fr;gap:18px;align-items:baseline;
+  padding:20px 0;border-bottom:1px solid var(--hairl)}
+.cap-r.head{padding:12px 0}
+.cap-r.head span{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--steel-2);text-transform:uppercase}
+.cap-r .pn{font-weight:700;font-size:17px;color:#fff}
+.cap-r .pn small{display:block;font-weight:500;font-size:13px;color:var(--steel);font-family:'Noto Sans TC',sans-serif;margin-top:2px}
+.cap-r .env,.cap-r .qty{font-family:var(--mono);font-size:13.5px;color:var(--steel)}
+.cap-r .tol{font-family:var(--mono);font-size:13.5px;color:var(--cyan)}
+.cap-r .qty{text-align:right}
+
+/* process */
+.proc{position:relative;margin-top:clamp(40px,5vw,60px)}
+.proc .dl-line{margin-bottom:34px}
+.proc-g{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step .no{font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:.2em}
+.step h3{font-weight:700;font-size:17px;color:#fff;margin-top:10px}
+.step h3 small{display:block;font-family:'Noto Sans TC',sans-serif;font-weight:500;font-size:13px;color:var(--steel);margin-top:2px}
+.step p{font-family:var(--mono);font-size:12px;color:var(--steel-2);margin-top:8px;letter-spacing:.03em}
+.floor{margin-top:clamp(48px,6vw,72px);position:relative;overflow:hidden;border:1px solid var(--hairl)}
+.floor img{width:100%;aspect-ratio:21/9;object-fit:cover;filter:grayscale(1) contrast(1.08) brightness(.72)}
+.floor::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(127,166,184,.14),rgba(23,27,31,.55))}
+.floor figcaption{position:absolute;left:18px;bottom:14px;z-index:2;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--silver)}
+
+/* certs */
+.plates{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.plate{position:relative;border:1px solid var(--hairl);padding:26px 24px 22px;background:rgba(31,37,43,.5)}
+.plate::before,.plate::after{content:"";position:absolute;width:9px;height:9px;border:1px solid var(--cyan-soft)}
+.plate::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.plate::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.plate b{display:block;font-weight:800;font-stretch:114%;font-size:19px;color:#fff}
+.plate span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--steel-2);margin-top:9px;text-transform:uppercase}
+
+/* markets */
+.mkt-g{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.mkt-n{grid-column:1/5}
+.mkt-n .big{font-size:clamp(90px,12vw,170px);font-variant-numeric:tabular-nums}
+.mkt-n .cap{color:var(--steel);font-size:14.5px;max-width:20em;margin-top:6px}
+.mkt-cols{grid-column:5/13;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.mcol h4{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--cyan);text-transform:uppercase;border-bottom:1px solid var(--hairl);padding-bottom:10px;margin-bottom:12px}
+.mcol li{list-style:none;font-family:var(--mono);font-size:13px;color:var(--steel);padding:3px 0}
+.port{grid-column:5/13;margin-top:8px;position:relative;overflow:hidden;border:1px solid var(--hairl)}
+.port img{width:100%;aspect-ratio:16/7;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.7)}
+.port::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(127,166,184,.14),rgba(23,27,31,.5))}
+.port figcaption{position:absolute;left:18px;bottom:14px;z-index:2;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--silver)}
+
+/* RFQ */
+.rfq{background:var(--panel);border-top:1px solid var(--hairl);margin-top:clamp(90px,12vw,160px);padding-block:clamp(80px,10vw,130px)}
+.rfq-g{display:grid;grid-template-columns:repeat(12,1fr);gap:40px 24px}
+.rfq-side{grid-column:1/5}
+.rfq-side .h48{font-size:clamp(64px,8vw,110px);font-variant-numeric:tabular-nums}
+.rfq-side .h48 .u{font-family:var(--mono);font-size:.3em;color:var(--orange);letter-spacing:.05em}
+.rfq-side p{color:var(--steel);font-size:15px;margin-top:16px;max-width:24em}
+.rfq-side ul{margin-top:26px}
+.rfq-side li{list-style:none;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--steel-2);padding:9px 0;border-top:1px solid var(--hairl)}
+.rfq-side li b{color:var(--steel);font-weight:500}
+form.rfq-f{grid-column:5/13;display:grid;grid-template-columns:1fr 1fr;gap:22px 20px}
+.fld{display:flex;flex-direction:column;gap:8px}
+.fld.full{grid-column:1/-1}
+.fld label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--steel-2)}
+.fld input,.fld select,.fld textarea{background:transparent;border:1px solid var(--hairl);color:var(--silver);
+  padding:13px 14px;font-size:14.5px;border-radius:0;transition:border-color .2s}
+.fld textarea{min-height:96px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--orange);outline:none}
+.fld select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239AA7B0' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.drop{grid-column:1/-1;border:1px dashed var(--hairl);padding:26px;text-align:center;cursor:pointer;transition:border-color .2s}
+.drop:hover,.drop.over{border-color:var(--cyan)}
+.drop .d1{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--steel)}
+.drop .d2{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--steel-2);margin-top:6px}
+.drop input{display:none}
+.drop .files{font-family:var(--mono);font-size:11px;color:var(--cyan);margin-top:8px}
+.rfq-f .btn-o{grid-column:1/-1;justify-content:center;padding:17px}
+.rfq-ok{grid-column:5/13;display:none;border:1px solid var(--hairl);padding:clamp(30px,4vw,52px);background:rgba(23,27,31,.5)}
+.rfq-ok.show{display:block}
+.rfq-ok .okno{font-family:var(--mono);font-size:13px;letter-spacing:.16em;color:var(--orange)}
+.rfq-ok h3{font-size:clamp(24px,3vw,34px);color:#fff;margin-top:14px}
+.rfq-ok p{color:var(--steel);margin-top:12px;max-width:34em}
+.rfq-ok button{margin-top:22px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--cyan);border-bottom:1px solid var(--cyan-soft);padding-bottom:2px}
+
+/* footer */
+footer.site{border-top:1px solid var(--hairl);padding:52px 0 30px;color:var(--steel-2);font-size:13px}
+.f-g{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between}
+.f-g .zh-m{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:18px;color:var(--silver)}
+.f-g .addr{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;line-height:1.9}
+.f-bot{margin-top:38px;padding-top:18px;border-top:1px solid var(--hairl);display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between;font-size:11.5px;font-family:var(--mono);letter-spacing:.06em}
+.f-bot a{color:var(--steel);border-bottom:1px solid var(--hairl)}
+
+/* mobile RFQ bar */
+.bbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;
+  background:rgba(23,27,31,.97);border-top:1px solid var(--hairl);
+  padding:11px var(--pad) calc(11px + env(safe-area-inset-bottom));
+  transform:translateY(105%);transition:transform .45s var(--ez)}
+.bbar.show{transform:none}
+.bbar a{display:flex;justify-content:center;align-items:center;gap:10px;background:var(--orange);color:#16191D;font-weight:700;font-size:14px;padding:14px;letter-spacing:.05em}
+
+/* responsive */
+@media(max-width:1020px){
+  .hero-l{grid-column:1/13}
+  .hero-r{grid-column:2/12;margin-top:34px}
+  #partWrap{max-height:420px}
+  .proc-g{grid-template-columns:1fr 1fr;gap:34px 24px}
+  .plates{grid-template-columns:1fr 1fr}
+  .mkt-n{grid-column:1/13}
+  .mkt-cols{grid-column:1/13;grid-template-columns:1fr 1fr}
+  .port{grid-column:1/13}
+  .rfq-side{grid-column:1/13}
+  form.rfq-f,.rfq-ok{grid-column:1/13}
+  .sec-head h2{grid-column:1/13}
+  .sec-head .sec-sub{grid-column:1/13}
+}
+@media(max-width:820px){
+  .nlinks{display:none}
+  .burger{display:block}
+  .bbar{display:block}
+  .cap-r{grid-template-columns:1.6fr 1fr;gap:8px 18px}
+  .cap-r .env{display:none}
+  .cap-r.head span:nth-child(2){display:none}
+  .proc-g{grid-template-columns:1fr}
+  .plates{grid-template-columns:1fr}
+  form.rfq-f{grid-template-columns:1fr}
+  .mkt-cols{grid-template-columns:1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  #loader{display:none!important}
+  *{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="lp lp-t"></div><div class="lp lp-b"></div>
+  <span class="l-line" id="lLine"></span>
+  <div class="l-in">
+    <div class="l-boot" id="lBoot"></div>
+    <div class="l-sub">QIANZHEN · KAOHSIUNG · EST. 1987</div>
+    <div class="l-ticks" id="lTicks"></div>
+  </div>
+</div>
+
+<div class="gridbg" aria-hidden="true"></div>
+
+<header id="hdr">
+  <div class="wrap nav-in">
+    <a class="lockup" href="#top">
+      <span class="zh-m" lang="zh-Hant">鉦昌精密</span>
+      <span class="en-m">CHENG CHANG PRECISION</span>
+    </a>
+    <nav class="nlinks" aria-label="Primary">
+      <a href="#capabilities"><span class="en">Capabilities</span><span class="zh">產能</span></a>
+      <a href="#process"><span class="en">Process</span><span class="zh">流程</span></a>
+      <a href="#certs"><span class="en">Certifications</span><span class="zh">認證</span></a>
+      <a href="#markets"><span class="en">Export</span><span class="zh">外銷</span></a>
+      <span class="nid">CC · KHH · EST 1987</span>
+      <button class="lang-t" onclick="toggleLang()" aria-label="Switch language"><span class="en">中文</span><span class="zh">EN</span></button>
+      <a class="btn-rfq" href="#rfq"><span class="en">Request a quote</span><span class="zh">索取報價</span></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<nav id="mnav" aria-hidden="true">
+  <a class="big" href="#capabilities"><span><span class="en">Capabilities</span><span class="zh">加工產能</span></span><em>01</em></a>
+  <a class="big" href="#process"><span><span class="en">Process</span><span class="zh">合作流程</span></span><em>02</em></a>
+  <a class="big" href="#certs"><span><span class="en">Certifications</span><span class="zh">品質認證</span></span><em>03</em></a>
+  <a class="big" href="#markets"><span><span class="en">Export markets</span><span class="zh">外銷市場</span></span><em>04</em></a>
+  <a class="big" href="#rfq"><span><span class="en">Request a quote</span><span class="zh">索取報價</span></span><em>05</em></a>
+  <div class="mfoot">
+    <button class="lang-t" onclick="toggleLang()" style="align-self:flex-start"><span class="en">切換中文 →</span><span class="zh">Switch to English →</span></button>
+  </div>
+</nav>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-g">
+      <div class="hero-l">
+        <div class="dim" id="heroDim">
+          <span class="lab">MACHINING TOLERANCE <span lang="zh-Hant">加工公差</span></span>
+          <i class="dl-line"></i>
+        </div>
+        <h1>
+          <div class="h-disp hval"><span id="tolVal">±0.005</span><span class="u">mm</span></div>
+          <div class="h-disp hline2 rise"><span class="en">Every part. Since 1987.</span><span class="zh" lang="zh-Hant">每一件,自 1987。</span></div>
+        </h1>
+        <p class="hsub rise">
+          <span class="en">CNC-machined components from Kaohsiung, shipped to 23 countries. Send a drawing — get a quote in 48 hours.</span>
+          <span class="zh" lang="zh-Hant">高雄 CNC 精密加工,外銷 23 國。傳圖面過來,48 小時內回覆報價。</span>
+        </p>
+        <div class="hcta rise">
+          <a class="btn btn-o" href="#rfq"><span class="en">Request a quote</span><span class="zh">索取報價</span></a>
+          <a class="btn btn-ghost" href="#capabilities"><span class="en">See capabilities</span><span class="zh">看加工產能</span></a>
+        </div>
+      </div>
+      <div class="hero-r rise">
+        <div id="partWrap">
+          <!-- technical drawing: poster, reduced-motion state, and WebGL fallback -->
+          <svg viewBox="0 0 400 448" fill="none" aria-label="Technical drawing of a turned precision shaft">
+            <g stroke="#7FA6B8" stroke-width="1">
+              <path d="M140 60 h120 v34 h-26 v30 h48 v46 h-40 v92 h22 v34 h-22 v36 h-18 v44 h-48 v-44 h-18 v-36 h-22 v-34 h22 v-92 h-40 v-46 h48 v-30 h-26 z" opacity=".9"/>
+              <line x1="200" y1="34" x2="200" y2="414" stroke-dasharray="10 4 2 4" opacity=".45"/>
+              <line x1="96" y1="60" x2="96" y2="376" opacity=".5"/>
+              <line x1="90" y1="60" x2="126" y2="60" opacity=".5"/>
+              <line x1="90" y1="376" x2="146" y2="376" opacity=".5"/>
+              <line x1="308" y1="124" x2="308" y2="170" opacity=".5"/>
+              <line x1="284" y1="124" x2="314" y2="124" opacity=".5"/>
+              <line x1="284" y1="170" x2="314" y2="170" opacity=".5"/>
+            </g>
+            <g fill="#7FA6B8" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".08em">
+              <text x="60" y="222" transform="rotate(-90 60 222)">120.00 ±0.01</text>
+              <text x="318" y="151">Ø23 h6</text>
+              <text x="140" y="440">CC-4407-A · AL6061-T6</text>
+            </g>
+          </svg>
+          <canvas id="partCanvas" aria-hidden="true"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="facts-strip rise">
+      <div class="facts-in">
+        <span><b>EST 1987</b></span>
+        <span>ISO 9001 · IATF 16949</span>
+        <span><b>40</b> CNC MACHINES</span>
+        <span><b>23</b> EXPORT COUNTRIES</span>
+        <span>RFQ REPLY ≤ <b>48 H</b></span>
+        <span lang="zh-Hant">前鎮・高雄</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="capabilities">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="dim"><span class="lab">01 · CAPABILITIES <span lang="zh-Hant">加工產能</span></span><i class="dl-line"></i></div>
+      <h2 class="h-disp rise"><span class="en">Tolerance is a promise.</span><span class="zh" lang="zh-Hant">公差,是承諾。</span></h2>
+      <p class="sec-sub rise"><span class="en">Every machine on this floor is certified against the number it quotes.</span><span class="zh" lang="zh-Hant">廠內每一台機器,都為它報出的數字負責。</span></p>
+    </div>
+    <div class="cap-t">
+      <div class="cap-r head"><span><span class="en">Process</span><span class="zh">製程</span></span><span><span class="en">Envelope</span><span class="zh">加工範圍</span></span><span><span class="en">Tolerance</span><span class="zh">公差</span></span><span style="text-align:right"><span class="en">Units</span><span class="zh">台數</span></span></div>
+      <div class="cap-r rise"><span class="pn">CNC TURNING<small lang="zh-Hant">車床加工</small></span><span class="env">max Ø450 × 1,200 mm</span><span class="tol">±0.005 mm</span><span class="qty">12</span></div>
+      <div class="cap-r rise"><span class="pn">5-AXIS MILLING<small lang="zh-Hant">五軸銑削</small></span><span class="env">850 × 700 × 600 mm</span><span class="tol">±0.008 mm</span><span class="qty">9</span></div>
+      <div class="cap-r rise"><span class="pn">WIRE EDM<small lang="zh-Hant">線切割</small></span><span class="env">400 × 300 mm</span><span class="tol">±0.003 mm</span><span class="qty">6</span></div>
+      <div class="cap-r rise"><span class="pn">CYLINDRICAL GRINDING<small lang="zh-Hant">圓筒研磨</small></span><span class="env">Ø320 × 800 mm</span><span class="tol">Ra 0.2</span><span class="qty">8</span></div>
+      <div class="cap-r rise"><span class="pn">CMM INSPECTION<small lang="zh-Hant">三次元檢測</small></span><span class="env">1,000 × 800 mm</span><span class="tol">0.9 + L/350 µm</span><span class="qty">5</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="dim"><span class="lab">02 · PROCESS <span lang="zh-Hant">合作流程</span></span><i class="dl-line"></i></div>
+      <h2 class="h-disp rise"><span class="en">Drawing in, parts out.</span><span class="zh" lang="zh-Hant">圖面進來,零件出去。</span></h2>
+      <p class="sec-sub rise"><span class="en">Four steps. The clock starts when your file lands.</span><span class="zh" lang="zh-Hant">四個步驟。檔案送達,計時開始。</span></p>
+    </div>
+    <div class="proc">
+      <div class="dim" id="procDim"><i class="dl-line"></i></div>
+      <div class="proc-g">
+        <div class="step rise"><span class="no">01</span><h3><span class="en">Drawing</span><span class="zh">圖面</span><small>STEP · IGES · DWG · PDF</small></h3><p>rfq@chengchang-precision.tw</p></div>
+        <div class="step rise"><span class="no">02</span><h3><span class="en">Quote</span><span class="zh">報價</span><small lang="zh-Hant">四十八小時內</small></h3><p>≤ 48 H · DFM NOTES INCLUDED</p></div>
+        <div class="step rise"><span class="no">03</span><h3><span class="en">Sample</span><span class="zh">樣品</span><small lang="zh-Hant">十四個工作天</small></h3><p>T+14 D · FIRST ARTICLE + CMM REPORT</p></div>
+        <div class="step rise"><span class="no">04</span><h3><span class="en">Production</span><span class="zh">量產</span><small lang="zh-Hant">附全檢報告</small></h3><p>FULL INSPECTION · SEA OR AIR</p></div>
+      </div>
+      <figure class="floor rise">
+        <img alt="CNC shop floor, Qianzhen plant" loading="lazy" decoding="async" width="1400" height="600"
+          src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1400&q=60"
+          onerror="this.closest('figure').style.display='none'">
+        <figcaption>PLANT 2 · QIANZHEN 前鎮二廠 · 06:30 SHIFT</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="certs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="dim"><span class="lab">03 · CERTIFICATIONS <span lang="zh-Hant">品質認證</span></span><i class="dl-line"></i></div>
+      <h2 class="h-disp rise"><span class="en">Audited, not asserted.</span><span class="zh" lang="zh-Hant">認證,不是口說。</span></h2>
+    </div>
+    <div class="plates">
+      <div class="plate rise"><b>ISO 9001:2015</b><span><span class="en">Quality management · SGS audited</span><span class="zh">品質管理系統・SGS 稽核</span></span></div>
+      <div class="plate rise"><b>IATF 16949:2016</b><span><span class="en">Automotive quality system</span><span class="zh">車用品質系統</span></span></div>
+      <div class="plate rise"><b>RoHS · REACH</b><span><span class="en">Material compliance, EU</span><span class="zh">歐盟材質規範</span></span></div>
+      <div class="plate rise"><b>100% FAI + CMM</b><span><span class="en">Inspection report with every shipment</span><span class="zh">每批出貨附檢測報告</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="markets">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="dim"><span class="lab">04 · EXPORT <span lang="zh-Hant">外銷市場</span></span><i class="dl-line"></i></div>
+      <h2 class="h-disp rise"><span class="en">Where the parts run.</span><span class="zh" lang="zh-Hant">零件跑到哪裡。</span></h2>
+    </div>
+    <div class="mkt-g">
+      <div class="mkt-n rise">
+        <div class="h-disp big" id="mktN">23</div>
+        <p class="cap"><span class="en">countries took delivery last year — machinery, hydraulics, e-mobility and hardware buyers.</span><span class="zh" lang="zh-Hant">去年出貨 23 國——機械、油壓、電動載具與五金買家。</span></p>
+      </div>
+      <div class="mkt-cols">
+        <div class="mcol rise"><h4>Asia <span lang="zh-Hant">亞洲</span> · 9</h4><ul><li>JP · 日本</li><li>KR · 韓國</li><li>SG · 新加坡</li><li>TH · 泰國</li><li>VN · 越南</li><li>MY · 馬來西亞</li><li>IN · 印度</li><li>PH · 菲律賓</li><li>ID · 印尼</li></ul></div>
+        <div class="mcol rise"><h4>Europe <span lang="zh-Hant">歐洲</span> · 7</h4><ul><li>DE · 德國</li><li>NL · 荷蘭</li><li>PL · 波蘭</li><li>UK · 英國</li><li>IT · 義大利</li><li>SE · 瑞典</li><li>CZ · 捷克</li></ul></div>
+        <div class="mcol rise"><h4>Americas <span lang="zh-Hant">美洲</span> · 5</h4><ul><li>US · 美國</li><li>MX · 墨西哥</li><li>CA · 加拿大</li><li>BR · 巴西</li><li>CL · 智利</li></ul></div>
+        <div class="mcol rise"><h4>ME · Oceania <span lang="zh-Hant">其他</span> · 2</h4><ul><li>AE · 阿聯</li><li>AU · 澳洲</li></ul></div>
+      </div>
+      <figure class="port rise">
+        <img alt="Container gantry cranes at the Port of Kaohsiung" loading="lazy" decoding="async" width="1400" height="613"
+          src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1400&q=60"
+          onerror="this.closest('figure').style.display='none'">
+        <figcaption>PORT OF KAOHSIUNG 高雄港 · 15 MIN FROM DOCK DOOR</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="rfq" id="rfq">
+  <div class="wrap rfq-g">
+    <div class="rfq-side">
+      <div class="dim"><span class="lab">05 · RFQ <span lang="zh-Hant">索取報價</span></span><i class="dl-line"></i></div>
+      <div class="h-disp h48 rise" style="margin-top:22px">48<span class="u">H</span></div>
+      <p><span class="en">From drawing to quote, with DFM notes. Nights and weekends count — Kaohsiung doesn't sleep much.</span><span class="zh" lang="zh-Hant">從圖面到報價,含 DFM 建議。夜間與週末照算——高雄不太睡覺。</span></p>
+      <ul>
+        <li><b>FORMATS</b> — STEP / IGES / DWG / PDF · ≤ 20 MB</li>
+        <li><b>NDA</b> — <span class="en">signed on request</span><span class="zh" lang="zh-Hant">可簽保密協議</span></li>
+        <li><b>DIRECT</b> — rfq@chengchang-precision.tw</li>
+        <li><b>TEL</b> — +886 7 812 3346</li>
+      </ul>
+    </div>
+    <form class="rfq-f" id="rfqForm" novalidate>
+      <div class="fld"><label for="f-co"><span class="en">Company</span><span class="zh">公司</span></label><input id="f-co" required autocomplete="organization"></div>
+      <div class="fld"><label for="f-nm"><span class="en">Name</span><span class="zh">姓名</span></label><input id="f-nm" required autocomplete="name"></div>
+      <div class="fld"><label for="f-em"><span class="en">Email</span><span class="zh">電子郵件</span></label><input id="f-em" type="email" required autocomplete="email"></div>
+      <div class="fld"><label for="f-ct"><span class="en">Country</span><span class="zh">國家</span></label>
+        <select id="f-ct"><option>United States</option><option>Germany</option><option>Japan</option><option>Netherlands</option><option>Australia</option><option>Taiwan 台灣</option><option>Other</option></select></div>
+      <div class="fld"><label for="f-mt"><span class="en">Material</span><span class="zh">材質</span></label>
+        <select id="f-mt"><option>AL6061 / 7075</option><option>SUS303 / 304 / 316</option><option>S45C · alloy steel</option><option>Brass · copper</option><option>Titanium</option><option>Other / per drawing</option></select></div>
+      <div class="fld"><label for="f-qt"><span class="en">Quantity</span><span class="zh">數量</span></label><input id="f-qt" inputmode="numeric" placeholder="500 – 50,000"></div>
+      <div class="fld full"><label for="f-ms"><span class="en">Notes</span><span class="zh">備註</span></label><textarea id="f-ms" placeholder=""></textarea></div>
+      <label class="drop" id="drop">
+        <input type="file" id="fileIn" multiple accept=".step,.stp,.iges,.igs,.dwg,.pdf">
+        <div class="d1"><span class="en">DROP YOUR DRAWING HERE — OR CLICK</span><span class="zh">拖曳圖面到這裡,或點擊上傳</span></div>
+        <div class="d2">STEP · IGES · DWG · PDF — MAX 20 MB</div>
+        <div class="files" id="fileList"></div>
+      </label>
+      <button class="btn btn-o" type="submit"><span class="en">Send RFQ — reply within 48 h</span><span class="zh">送出詢價——48 小時內回覆</span></button>
+    </form>
+    <div class="rfq-ok" id="rfqOk">
+      <div class="okno" id="okNo">RFQ RECEIVED · CC-2607-4471</div>
+      <h3><span class="en">Your drawing is on the floor.</span><span class="zh" lang="zh-Hant">圖面已送達現場。</span></h3>
+      <p><span class="en">An engineer replies within 48 hours with pricing and DFM notes to the email you left. This is a demo — no file left your device.</span><span class="zh" lang="zh-Hant">工程師將於 48 小時內回覆報價與 DFM 建議至您的信箱。此為示範網站——檔案不會離開您的裝置。</span></p>
+      <button id="againBtn"><span class="en">SEND ANOTHER RFQ</span><span class="zh">再送一筆詢價</span></button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-g">
+      <div>
+        <div class="zh-m" lang="zh-Hant">鉦昌精密工業股份有限公司</div>
+        <div class="en-m" style="font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--steel-2);margin-top:6px">CHENG CHANG PRECISION IND. CO., LTD.</div>
+      </div>
+      <div class="addr">
+        118 XINGYE RD., QIANZHEN, KAOHSIUNG 806, TAIWAN<br>
+        <span lang="zh-Hant">806 高雄市前鎮區興業路 118 號</span><br>
+        RFQ@CHENGCHANG-PRECISION.TW · +886 7 812 3346
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© <span id="yr"></span> CHENG CHANG PRECISION — <span class="en">DEMO MOCKUP, DETAILS FICTIONAL</span><span class="zh">示範網站,內容為虛構</span></span>
+      <span><span class="en">BILINGUAL SITE BY</span><span class="zh">雙語網站設計:</span> <a href="mailto:goswami.deepan@gmail.com">DEEPAN GOSWAMI</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="bbar" id="bbar">
+  <a href="#rfq"><span class="en">Request a quote — 48 h</span><span class="zh">索取報價——48 小時回覆</span></a>
+</div>
+
+<script src="../assets/vendor/gsap.min.js"></script>
+<script src="../assets/vendor/ScrollTrigger.min.js"></script>
+<script src="../assets/vendor/lenis.min.js"></script>
+<script>
+/* ---------- language ---------- */
+function setLang(l){
+  document.body.classList.toggle('zh-mode', l === 'zh');
+  document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en';
+  try{ localStorage.setItem('demoLang', l); }catch(e){}
+}
+function toggleLang(){ setLang(document.body.classList.contains('zh-mode') ? 'en' : 'zh'); }
+try{ if(localStorage.getItem('demoLang') === 'zh') setLang('zh'); }catch(e){}
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---------- nav / mobile menu ---------- */
+const hdr = document.getElementById('hdr');
+const burger = document.getElementById('burger');
+burger.addEventListener('click', () => {
+  const open = document.body.classList.toggle('mnav-open');
+  burger.setAttribute('aria-expanded', open);
+  document.getElementById('mnav').setAttribute('aria-hidden', String(!open));
+  if(window.lenis){ open ? lenis.stop() : lenis.start(); }
+});
+document.querySelectorAll('#mnav a.big').forEach(a => a.addEventListener('click', () => {
+  document.body.classList.remove('mnav-open');
+  burger.setAttribute('aria-expanded', 'false');
+  if(window.lenis) lenis.start();
+}));
+
+/* ---------- RFQ demo form ---------- */
+const fileIn = document.getElementById('fileIn'), fileList = document.getElementById('fileList'), drop = document.getElementById('drop');
+fileIn.addEventListener('change', () => {
+  fileList.textContent = [...fileIn.files].map(f => f.name).join(' · ');
+});
+['dragover','dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {
+  e.preventDefault();
+  drop.classList.toggle('over', ev === 'dragover');
+  if(ev === 'drop' && e.dataTransfer.files.length){
+    fileIn.files = e.dataTransfer.files;
+    fileList.textContent = [...e.dataTransfer.files].map(f => f.name).join(' · ');
+  }
+}));
+document.getElementById('rfqForm').addEventListener('submit', e => {
+  e.preventDefault();
+  document.getElementById('okNo').textContent = 'RFQ RECEIVED · CC-2607-' + Math.floor(1000 + Math.random()*9000);
+  document.getElementById('rfqForm').style.display = 'none';
+  document.getElementById('rfqOk').classList.add('show');
+});
+document.getElementById('againBtn').addEventListener('click', () => {
+  document.getElementById('rfqOk').classList.remove('show');
+  document.getElementById('rfqForm').style.display = 'grid';
+});
+
+/* ---------- motion ---------- */
+gsap.registerPlugin(ScrollTrigger);
+const mm = gsap.matchMedia();
+
+mm.add('(prefers-reduced-motion: no-preference)', () => {
+
+  window.lenis = new Lenis({ autoRaf: false, anchors: { offset: -86 } });
+  lenis.on('scroll', ScrollTrigger.update);
+  const raf = t => lenis.raf(t * 1000);
+  gsap.ticker.add(raf);
+  gsap.ticker.lagSmoothing(0);
+
+  ScrollTrigger.create({ start: 60, onToggle: s => hdr.classList.toggle('solid', s.isActive) });
+  ScrollTrigger.create({ start: 640, onToggle: s => document.getElementById('bbar').classList.toggle('show', s.isActive) });
+
+  /* the signature: dimension lines draw and tick-stamp as they enter */
+  document.querySelectorAll('.sec-head .dim, #procDim, .rfq-side .dim').forEach(dim => {
+    gsap.timeline({ scrollTrigger: { trigger: dim, start: 'top 84%', once: true } })
+      .to(dim.querySelector('.dl-line'), { scaleX: 1, duration: .75, ease: 'power3.inOut' })
+      .add(() => dim.classList.add('drawn'));
+  });
+
+  /* content rises from behind its rule — one trigger per element, hero excluded */
+  gsap.utils.toArray('.sec .rise, .rfq .rise').forEach(el => {
+    gsap.to(el, { opacity: 1, y: 0, duration: .8, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+  });
+
+  /* hero sequence (played by the loader hand-off) */
+  const heroTl = gsap.timeline({ paused: true });
+  const tol = { v: 0.5 };
+  heroTl.to('#heroDim .dl-line', { scaleX: 1, duration: .7, ease: 'power3.inOut' })
+    .add(() => document.getElementById('heroDim').classList.add('drawn'))
+    .to(tol, { v: 0.005, duration: 1.5, ease: 'power4.out',
+        onUpdate(){ document.getElementById('tolVal').textContent = '±' + tol.v.toFixed(3); } }, '-=.2')
+    .to('.hero-l .rise', { opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .1 }, '-=.9')
+    .to('.hero-r.rise, .facts-strip.rise', { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .12 }, '-=.6');
+
+  /* loader: mono boot line + real progress ticks */
+  const loader = document.getElementById('loader');
+  const boot = document.getElementById('lBoot');
+  const ticksBox = document.getElementById('lTicks');
+  for(let i = 0; i < 22; i++){ const t = document.createElement('i'); ticksBox.appendChild(t); }
+  const ticks = [...ticksBox.children];
+  const seen = (() => { try { return sessionStorage.getItem('cc1'); } catch(e){ return null; } })();
+
+  const exitLoader = () => gsap.timeline()
+    .to(ticks, { backgroundColor: '#7FA6B8', duration: .02, stagger: .012 })
+    .to('#loader .l-in', { opacity: 0, duration: .25, ease: 'power1.out' }, '+=.05')
+    .to('#lLine', { scaleX: 1, duration: .45, ease: 'power2.inOut' }, '<')
+    .to('#loader .lp-t', { yPercent: -100, duration: .75, ease: 'power4.inOut' }, '+=.05')
+    .to('#loader .lp-b', { yPercent: 100, duration: .75, ease: 'power4.inOut' }, '<')
+    .to('#lLine', { opacity: 0, duration: .3 }, '<.3')
+    .add(() => { loader.style.display = 'none'; heroTl.play(); }, '-=.35');
+
+  if (seen) {
+    gsap.to(loader, { autoAlpha: 0, duration: .25, onComplete: () => loader.style.display = 'none' });
+    heroTl.play();
+  } else {
+    try { sessionStorage.setItem('cc1', '1'); } catch(e){}
+    const bootStr = 'CHENG CHANG PRECISION — BOOT OK';
+    const tObj = { n: 0 };
+    gsap.to(tObj, { n: bootStr.length, duration: .9, ease: 'none',
+      onUpdate(){ boot.textContent = bootStr.slice(0, Math.round(tObj.n)); } });
+    let finished = false, minDone = false, assetsDone = false;
+    const tryFinish = () => { if(!finished && minDone && assetsDone){ finished = true; exitLoader(); } };
+    gsap.to(ticks.slice(0, 14), { backgroundColor: '#7FA6B8', duration: .05, stagger: .05 });
+    document.fonts.ready.then(() => { assetsDone = true; gsap.to(ticks.slice(14), { backgroundColor: '#7FA6B8', duration: .05, stagger: .04 }); tryFinish(); });
+    setTimeout(() => { minDone = true; tryFinish(); }, 700);
+    setTimeout(() => { assetsDone = true; minDone = true; tryFinish(); }, 1400); /* hard cap */
+  }
+
+  /* counters elsewhere */
+  const nEl = document.getElementById('mktN');
+  ScrollTrigger.create({ trigger: nEl, start: 'top 85%', once: true, onEnter: () => {
+    const o = { v: 0 };
+    gsap.to(o, { v: 23, duration: 1.1, ease: 'power3.out', onUpdate(){ nEl.textContent = Math.round(o.v); } });
+  }});
+
+  return () => { gsap.ticker.remove(raf); lenis.destroy(); window.lenis = null; };
+});
+
+/* reduced-motion fallback: everything static, plain scroll listeners */
+mm.add('(prefers-reduced-motion: reduce)', () => {
+  const onS = () => {
+    hdr.classList.toggle('solid', scrollY > 60);
+    document.getElementById('bbar').classList.toggle('show', scrollY > 640);
+  };
+  addEventListener('scroll', onS, { passive: true }); onS();
+  document.querySelectorAll('.dim').forEach(d => d.classList.add('drawn'));
+  return () => removeEventListener('scroll', onS);
+});
+
+/* ---------- 3D hero part (Option A: procedural, deferred, never blocks paint) ---------- */
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (navigator.deviceMemory && navigator.deviceMemory < 3) return;
+  if (navigator.connection && navigator.connection.saveData) return;
+  const start = () => { initPart().catch(() => {}); };
+  const arm = () => ('requestIdleCallback' in window)
+    ? requestIdleCallback(start, { timeout: 2500 }) : setTimeout(start, 900);
+  (document.readyState === 'complete') ? arm() : addEventListener('load', arm, { once: true });
+
+  async function initPart(){
+    const wrap = document.getElementById('partWrap');
+    const canvas = document.getElementById('partCanvas');
+    let THREE;
+    try { THREE = await import('../assets/vendor/three.module.min.js'); }
+    catch(e){ return; }
+
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'low-power' });
+    } catch(e){ return; }
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.12;
+
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(30, 1, .1, 60);
+    cam.position.set(0, .2, 8.2);
+
+    /* studio rig rendered straight to a PMREM — no external HDR, zero bytes */
+    const env = new THREE.Scene();
+    env.add(new THREE.Mesh(new THREE.SphereGeometry(24, 16, 16),
+      new THREE.MeshBasicMaterial({ color: 0x0B0E11, side: THREE.BackSide })));
+    const softbox = (w, h, x, y, z, ry, i) => {
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
+        new THREE.MeshBasicMaterial({ color: new THREE.Color().setScalar(i) }));
+      m.position.set(x, y, z); m.rotation.y = ry; env.add(m);
+    };
+    softbox(10, 5, 0, 6, -3, 0, 5.5);       /* key, above-behind */
+    softbox(4, 8, -7, 0, 1, Math.PI/2, 1.6); /* left fill */
+    softbox(4, 8, 7, 1, 2, -Math.PI/2, 3.0); /* right kick */
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(env, .04).texture;
+    pmrem.dispose();
+
+    /* turned shaft — lathe profile, machined steps and grooves */
+    const pts = [];
+    const P = (r, y) => pts.push(new THREE.Vector2(r, y));
+    P(0,-2.30); P(.88,-2.30); P(.88,-1.78); P(.60,-1.72); P(.60,-1.18);
+    P(1.14,-1.12); P(1.14,-.58); P(.70,-.52); P(.70,.58); P(.94,.64);
+    P(.94,1.02); P(.70,1.08); P(.70,1.52); P(.46,1.58); P(.46,2.12);
+    P(.38,2.16); P(.38,2.52); P(0,2.52);
+    const geo = new THREE.LatheGeometry(pts, 110);
+    const mat = new THREE.MeshStandardMaterial({ color: 0xC9CFD6, metalness: .96, roughness: .3 });
+    const part = new THREE.Mesh(geo, mat);
+    const grp = new THREE.Group();
+    grp.add(part);
+    grp.rotation.z = -.62; grp.rotation.x = .18;
+    scene.add(grp);
+    const rim = new THREE.DirectionalLight(0x9FC4D8, 1.4);
+    rim.position.set(5, 7, 6);
+    scene.add(rim);
+
+    const resize = () => {
+      const r = wrap.getBoundingClientRect();
+      if(!r.width || !r.height) return;
+      renderer.setSize(r.width, r.height, false);
+      cam.aspect = r.width / r.height;
+      cam.updateProjectionMatrix();
+    };
+    resize();
+    addEventListener('resize', resize);
+
+    /* scroll influence with lerp; base spin is slow and constant */
+    let target = 0, cur = 0, visible = true, rafId = 0;
+    const onScroll = () => {
+      const h = document.querySelector('.hero').getBoundingClientRect();
+      target = (Math.min(Math.max(-h.top / Math.max(h.height, 1), 0), 1) - .2) * .9;
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+
+    const clock = { t: performance.now() };
+    const loop = now => {
+      rafId = requestAnimationFrame(loop);
+      if(!visible || document.hidden) return;
+      const dt = Math.min((now - clock.t) / 1000, .05); clock.t = now;
+      cur += (target - cur) * .08;
+      part.rotation.y += dt * .35;
+      grp.rotation.z = -.62 + cur * .4;
+      renderer.render(scene, cam);
+    };
+    new IntersectionObserver(es => es.forEach(e => visible = e.isIntersecting), { threshold: .02 }).observe(wrap);
+    rafId = requestAnimationFrame(loop);
+    addEventListener('pagehide', () => { cancelAnimationFrame(rafId); geo.dispose(); mat.dispose(); renderer.dispose(); });
+
+    /* reveal over the blueprint once the first frame exists */
+    wrap.classList.add('live');
+    gsap.to(canvas, { opacity: 1, duration: 1.1, ease: 'power2.out', delay: .1 });
+  }
+})();
+</script>
+</body>
+</html>

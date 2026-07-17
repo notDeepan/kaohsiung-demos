@@ -24,13 +24,14 @@ a{color:inherit;text-decoration:none}
 .eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
 h1{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:600;line-height:1.2;max-width:18em;text-wrap:balance}
 .intro{color:var(--dim);max-width:46em;margin-top:16px;font-size:16.5px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-block:30px 10px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-block:30px 10px}
 .card{background:var(--card);border:1px solid var(--edge);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
 .card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.22)}
 .strip{height:120px;display:flex;align-items:flex-end;padding:16px 20px;position:relative;overflow:hidden}
 .strip .big{position:absolute;right:6px;top:-26px;font-family:'Noto Sans TC',serif;font-weight:700;font-size:120px;line-height:1;opacity:.16;color:#fff}
 .strip b{font-family:var(--serif);font-size:21px;color:#fff;position:relative;text-shadow:0 1px 8px rgba(0,0,0,.3)}
-.s-cafe{background:linear-gradient(135deg,#4a3426,#c4663a)}
+.s-mfg{background:linear-gradient(135deg,#171B1F,#31404C)}
+.s-cafe{background:linear-gradient(135deg,#221C15,#46654A)}
 .s-bnb{background:linear-gradient(135deg,#1d3a4f,#2e7d8c)}
 .s-shop{background:linear-gradient(135deg,#8a2f23,#d9a441)}
 .bd{padding:20px 22px 24px;display:flex;flex-direction:column;gap:14px;flex:1}
@@ -56,17 +57,26 @@ footer a{color:var(--gold);font-weight:700}
 
 <div class="wrap top">
   <p class="eyebrow">Kaohsiung demo kit · 高雄示範網站</p>
-  <h1>Three client-ready mockups for food, stays &amp; specialty brands.</h1>
+  <h1>Client-ready mockups for factories, food, stays &amp; specialty brands.</h1>
   <p class="intro">Single-file sites, no dependencies — open them from this folder, on a laptop or phone, even half-offline. Every page has an EN ⇄ 中文 toggle, LINE call-to-actions, and a footer credit that sells the next job. Re-skin one with a prospect's name, photos and menu in an afternoon.</p>
 </div>
 
 <div class="wrap cards">
+  <a class="card" href="mfg/index.html">
+    <div class="strip s-mfg"><span class="big">鉦</span><b>Cheng Chang Precision 鉦昌精密</b></div>
+    <div class="bd">
+      <span class="who">EXPORT MANUFACTURERS · 外銷工廠</span>
+      <p>Engineered-precision demo for machinery and metal SMEs: ±0.005&nbsp;mm hero with a live 3D machined part, self-annotating dimension lines, capability table, ISO/IATF plates, export map and a 48-hour RFQ flow with drawing upload.</p>
+      <div class="feat"><span>3D machined part</span><span>RFQ + file drop</span><span>Capability table</span><span>ISO · IATF plates</span><span>EN/中文</span></div>
+      <span class="go">Open demo <i>→</i></span>
+    </div>
+  </a>
   <a class="card" href="cafe/index.html">
     <div class="strip s-cafe"><span class="big">珈</span><b>Harborside Coffee 港邊珈琲</b></div>
     <div class="bd">
       <span class="who">CAFÉS · RESTAURANTS</span>
-      <p>Premium single-page café site: glass pill navbar, bento story grid, tabbed EN/ZH menu, signature-drinks cards, scroll-snap gallery, live open/closed status and a mobile sticky LINE-booking bar.</p>
-      <div class="feat"><span>Tabbed EN/中文 menu</span><span>Bento layout</span><span>Open-now status</span><span>Sticky LINE bar</span><span>Reviews + map</span></div>
+      <p>Photography-led editorial café site: film-grain "develop" image reveals, LXGW WenKai display type, a short bilingual menu set like print, live open/closed status, graded map and LINE booking throughout.</p>
+      <div class="feat"><span>Photo-essay layout</span><span>WenKai 楷體 display</span><span>Open-now status</span><span>LINE booking</span><span>EN/中文</span></div>
       <span class="go">Open demo <i>→</i></span>
     </div>
   </a>

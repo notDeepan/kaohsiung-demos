@@ -1,0 +1,19 @@
+{
+  "name": "kaohsiung-demos",
+  "version": "1.0.0",
+  "description": "Client-ready demo mockups for food, hospitality & tourism businesses in Kaohsiung, Taiwan — built to show prospects what a modern bilingual (EN/中文) website does for their business.",
+  "main": "serve.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": "true",
+  "devDependencies": {
+    "puppeteer-core": "^25.3.0"
+  }
+}
