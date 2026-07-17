@@ -9,8 +9,8 @@
 <meta property="og:description" content="CNC machining from Kaohsiung, shipped to 23 countries. Drawing to quote in 48 hours.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23171B1F'/%3E%3Ctext x='32' y='44' font-size='30' text-anchor='middle' fill='%23E9EDF0' font-family='sans-serif' font-weight='bold'%3E鉦%3C/text%3E%3Ccircle cx='53' cy='12' r='5' fill='%23FF4E1E'/%3E%3C/svg%3E">
 
-<style>
-/* Latin faces inlined — keeps the critical chain to one request (the HTML) */
+<style media="x-defer">
+/* Latin faces inlined — activated post-paint with the CJK css (see flip script) */
 @font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(../assets/fonts/archivo/archivo-002.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(../assets/fonts/archivo/archivo-001.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/ibm-plex-mono/ibm-plex-mono-004.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -563,10 +563,12 @@ footer.site{border-top:1px solid var(--hairl);padding:52px 0 30px;color:var(--st
 <script src="../assets/vendor/ScrollTrigger.min.js"></script>
 <script src="../assets/vendor/lenis.min.js"></script>
 <script>
-/* CJK font css activates after the first painted frame (keeps chunk fetches out of the FCP path) */
-requestAnimationFrame(() => requestAnimationFrame(() => {
-  document.querySelectorAll('link[media="x-defer"]').forEach(l => { l.media = 'all'; });
-}));
+/* fonts activate after window load — guarantees every font byte starts post-FCP */
+(function(){
+  const flip = () => requestAnimationFrame(() =>
+    document.querySelectorAll('link[media="x-defer"], style[media="x-defer"]').forEach(l => { l.media = 'all'; }));
+  (document.readyState === 'complete') ? flip() : addEventListener('load', flip, { once: true });
+})();
 
 /* ---------- language ---------- */
 function setLang(l){
@@ -683,7 +685,12 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
     let finished = false, minDone = false, assetsDone = false;
     const tryFinish = () => { if(!finished && minDone && assetsDone){ finished = true; exitLoader(); } };
     gsap.to(ticks.slice(0, 14), { backgroundColor: '#7FA6B8', duration: .05, stagger: .05 });
-    document.fonts.ready.then(() => { assetsDone = true; gsap.to(ticks.slice(14), { backgroundColor: '#7FA6B8', duration: .05, stagger: .04 }); tryFinish(); });
+    /* fonts activate at window load (see flip) — wait for the real faces, not the empty set */
+    const fontsReal = new Promise(res => {
+      const go = () => requestAnimationFrame(() => requestAnimationFrame(() => document.fonts.ready.then(res)));
+      (document.readyState === 'complete') ? go() : addEventListener('load', go, { once: true });
+    });
+    fontsReal.then(() => { assetsDone = true; gsap.to(ticks.slice(14), { backgroundColor: '#7FA6B8', duration: .05, stagger: .04 }); tryFinish(); });
     setTimeout(() => { minDone = true; tryFinish(); }, 560);
     setTimeout(() => { assetsDone = true; minDone = true; tryFinish(); }, 1200); /* hard cap */
   }

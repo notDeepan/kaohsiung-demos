@@ -9,8 +9,8 @@
 <meta property="og:description" content="Good light, slow coffee. A shophouse café in Yancheng, Kaohsiung.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23221C15'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='%23F4EFE6' font-family='KaiTi,serif'%3E珈%3C/text%3E%3C/svg%3E">
 
-<style>
-/* Latin faces inlined — keeps the critical chain to one request (the HTML) */
+<style media="x-defer">
+/* Latin faces inlined — activated post-paint with the CJK css (see flip script) */
 @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(../assets/fonts/instrument-serif/instrument-serif-001.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(../assets/fonts/instrument-serif/instrument-serif-000.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/instrument-serif/instrument-serif-003.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -542,10 +542,12 @@ footer.site{background:var(--dark-3);color:var(--cream-2);padding:clamp(56px,8vw
 <script src="../assets/vendor/ScrollTrigger.min.js"></script>
 <script src="../assets/vendor/lenis.min.js"></script>
 <script>
-/* CJK font css activates after the first painted frame (keeps chunk fetches out of the FCP path) */
-requestAnimationFrame(() => requestAnimationFrame(() => {
-  document.querySelectorAll('link[media="x-defer"]').forEach(l => { l.media = 'all'; });
-}));
+/* fonts activate after window load — guarantees every font byte starts post-FCP */
+(function(){
+  const flip = () => requestAnimationFrame(() =>
+    document.querySelectorAll('link[media="x-defer"], style[media="x-defer"]').forEach(l => { l.media = 'all'; }));
+  (document.readyState === 'complete') ? flip() : addEventListener('load', flip, { once: true });
+})();
 
 /* ---------- language ---------- */
 function setLang(l){
@@ -643,7 +645,12 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
     let finished = false, minDone = false;
     function finish(){ if(finished || !minDone || done < parts) return; finished = true; clearTimeout(cap); exitLoader(); }
     setTimeout(() => { minDone = true; finish(); }, 520);
-    document.fonts.ready.then(() => { step(); finish(); });
+    /* fonts activate at window load (see flip) — wait for the real faces, not the empty set */
+    const fontsReal = new Promise(res => {
+      const go = () => requestAnimationFrame(() => requestAnimationFrame(() => document.fonts.ready.then(res)));
+      (document.readyState === 'complete') ? go() : addEventListener('load', go, { once: true });
+    });
+    fontsReal.then(() => { step(); finish(); });
     (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(()=>{}).then(() => { step(); finish(); });
   }
 
