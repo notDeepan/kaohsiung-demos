@@ -353,18 +353,18 @@ footer.site{border-top:1px solid var(--hairl);padding:52px 0 30px;color:var(--st
         </div>
         <h1>
           <div class="h-disp hval"><span id="tolVal">±0.005</span><span class="u">mm</span></div>
-          <div class="h-disp hline2 rise"><span class="en">Every part. Since 1987.</span><span class="zh" lang="zh-Hant">每一件,自 1987。</span></div>
+          <div class="h-disp hline2"><span class="en">Every part. Since 1987.</span><span class="zh" lang="zh-Hant">每一件,自 1987。</span></div>
         </h1>
-        <p class="hsub rise">
+        <p class="hsub">
           <span class="en">CNC-machined components from Kaohsiung, shipped to 23 countries. Send a drawing — get a quote in 48 hours.</span>
           <span class="zh" lang="zh-Hant">高雄 CNC 精密加工,外銷 23 國。傳圖面過來,48 小時內回覆報價。</span>
         </p>
-        <div class="hcta rise">
+        <div class="hcta">
           <a class="btn btn-o" href="#rfq"><span class="en">Request a quote</span><span class="zh">索取報價</span></a>
           <a class="btn btn-ghost" href="#capabilities"><span class="en">See capabilities</span><span class="zh">看加工產能</span></a>
         </div>
       </div>
-      <div class="hero-r rise">
+      <div class="hero-r">
         <div id="partWrap">
           <!-- technical drawing: poster, reduced-motion state, and WebGL fallback -->
           <svg viewBox="0 0 400 448" fill="none" aria-label="Technical drawing of a turned precision shaft">
@@ -388,7 +388,7 @@ footer.site{border-top:1px solid var(--hairl);padding:52px 0 30px;color:var(--st
         </div>
       </div>
     </div>
-    <div class="facts-strip rise">
+    <div class="facts-strip">
       <div class="facts-in">
         <span><b>EST 1987</b></span>
         <span>ISO 9001 · IATF 16949</span>
@@ -645,9 +645,7 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
   heroTl.to('#heroDim .dl-line', { scaleX: 1, duration: .7, ease: 'power3.inOut' })
     .add(() => document.getElementById('heroDim').classList.add('drawn'))
     .to(tol, { v: 0.005, duration: 1.5, ease: 'power4.out',
-        onUpdate(){ document.getElementById('tolVal').textContent = '±' + tol.v.toFixed(3); } }, '-=.2')
-    .to('.hero-l .rise', { opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .1 }, '-=.9')
-    .to('.hero-r.rise, .facts-strip.rise', { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .12 }, '-=.6');
+        onUpdate(){ document.getElementById('tolVal').textContent = '±' + tol.v.toFixed(3); } }, '-=.2');
 
   /* loader: mono boot line + real progress ticks */
   const loader = document.getElementById('loader');
@@ -679,8 +677,8 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
     const tryFinish = () => { if(!finished && minDone && assetsDone){ finished = true; exitLoader(); } };
     gsap.to(ticks.slice(0, 14), { backgroundColor: '#7FA6B8', duration: .05, stagger: .05 });
     document.fonts.ready.then(() => { assetsDone = true; gsap.to(ticks.slice(14), { backgroundColor: '#7FA6B8', duration: .05, stagger: .04 }); tryFinish(); });
-    setTimeout(() => { minDone = true; tryFinish(); }, 700);
-    setTimeout(() => { assetsDone = true; minDone = true; tryFinish(); }, 1400); /* hard cap */
+    setTimeout(() => { minDone = true; tryFinish(); }, 560);
+    setTimeout(() => { assetsDone = true; minDone = true; tryFinish(); }, 1200); /* hard cap */
   }
 
   /* counters elsewhere */
@@ -756,7 +754,7 @@ mm.add('(prefers-reduced-motion: reduce)', () => {
     P(1.14,-1.12); P(1.14,-.58); P(.70,-.52); P(.70,.58); P(.94,.64);
     P(.94,1.02); P(.70,1.08); P(.70,1.52); P(.46,1.58); P(.46,2.12);
     P(.38,2.16); P(.38,2.52); P(0,2.52);
-    const geo = new THREE.LatheGeometry(pts, 110);
+    const geo = new THREE.LatheGeometry(pts, 64);
     const mat = new THREE.MeshStandardMaterial({ color: 0xC9CFD6, metalness: .96, roughness: .3 });
     const part = new THREE.Mesh(geo, mat);
     const grp = new THREE.Group();

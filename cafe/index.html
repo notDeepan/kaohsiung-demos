@@ -607,9 +607,9 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
   const heroImg = document.getElementById('heroImg');
   const seen = (() => { try { return sessionStorage.getItem('hb3'); } catch(e){ return null; } })();
 
-  /* hero develops as soon as the image is decoded — never gated on the loader */
-  gsap.set(heroImg, { autoAlpha: 0, scale: 1.05, filter: RAW });
-  const developHero = () => gsap.to(heroImg, { autoAlpha: 1, scale: 1, filter: DEVELOPED, duration: 1.15, ease: 'power2.out' });
+  /* hero develops as soon as the image is decoded — never hidden, never gated on the loader */
+  gsap.set(heroImg, { scale: 1.05, filter: RAW });
+  const developHero = () => gsap.to(heroImg, { scale: 1, filter: DEVELOPED, duration: 1.15, ease: 'power2.out' });
   (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(() => {}).then(developHero);
 
   gsap.set('.hero .msk-l', { yPercent: 115 }); /* matches the CSS initial state */
@@ -631,12 +631,12 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
     /* wordmark + caption enter via CSS animation — first paint never waits on JS */
     let done = 0; const parts = 2;
     const step = () => { done++; gsap.to(fill, { scaleX: done / parts * .9, duration: .4, ease: 'power1.out' }); };
-    const cap = setTimeout(finish, 1500);
+    const cap = setTimeout(() => { minDone = true; done = parts; finish(); }, 1200);
     let finished = false, minDone = false;
-    function finish(){ if(finished || !minDone && done < parts) return; if(finished) return; finished = true; clearTimeout(cap); exitLoader(); }
-    setTimeout(() => { minDone = true; if(done >= parts) finish(); }, 650);
-    document.fonts.ready.then(() => { step(); if(minDone && done >= parts) finish(); });
-    (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(()=>{}).then(() => { step(); if(minDone && done >= parts) finish(); });
+    function finish(){ if(finished || !minDone || done < parts) return; finished = true; clearTimeout(cap); exitLoader(); }
+    setTimeout(() => { minDone = true; finish(); }, 520);
+    document.fonts.ready.then(() => { step(); finish(); });
+    (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(()=>{}).then(() => { step(); finish(); });
   }
 
   /* ----- the signature: photographs develop on scroll ----- */
